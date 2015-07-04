@@ -18,3 +18,11 @@ SOURCES += main.cpp\
 HEADERS  += SoundRecognition.h
 
 FORMS    += SoundRecognition.ui
+
+INCLUDEPATH += C:/Qt/Qwt/include
+LIBS += C:/Qt/Qwt/lib/qwtd.dll
+
+win32 {
+    RC_FILE += file.qrc
+    OTHER_FILES += file.qrc
+}
