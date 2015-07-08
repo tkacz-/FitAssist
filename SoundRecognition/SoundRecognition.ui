@@ -39,6 +39,13 @@
           </widget>
          </item>
          <item>
+          <widget class="QPushButton" name="infoButton">
+           <property name="text">
+            <string>File Info</string>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QPushButton" name="quitButton">
            <property name="text">
             <string>Quit</string>
@@ -95,9 +102,7 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="file.qrc"/>
- </resources>
+ <resources/>
  <connections>
   <connection>
    <sender>quitButton</sender>

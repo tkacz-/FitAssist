@@ -226,6 +226,9 @@ debug/moc_SoundRecognition.cpp: C:/Qt/5.4/mingw491_32/include/QtWidgets/QMainWin
 		C:/Qt/5.4/mingw491_32/include/QtWidgets/QMessageBox \
 		C:/Qt/5.4/mingw491_32/include/QtWidgets/qmessagebox.h \
 		C:/Qt/5.4/mingw491_32/include/QtCore/qmath.h \
+		C:/Qt/5.4/mingw491_32/include/QtCore/QVector \
+		C:/Qt/5.4/mingw491_32/include/QtCore/QtEndian \
+		C:/Qt/5.4/mingw491_32/include/QtCore/qendian.h \
 		C:/Qt/Qwt/include/qwt_plot_item.h \
 		C:/Qt/Qwt/include/qwt_global.h \
 		C:/Qt/Qwt/include/qwt_text.h \
@@ -509,6 +512,9 @@ debug/main.o: ../SoundRecognition/main.cpp ../SoundRecognition/SoundRecognition.
 		C:/Qt/5.4/mingw491_32/include/QtWidgets/QMessageBox \
 		C:/Qt/5.4/mingw491_32/include/QtWidgets/qmessagebox.h \
 		C:/Qt/5.4/mingw491_32/include/QtCore/qmath.h \
+		C:/Qt/5.4/mingw491_32/include/QtCore/QVector \
+		C:/Qt/5.4/mingw491_32/include/QtCore/QtEndian \
+		C:/Qt/5.4/mingw491_32/include/QtCore/qendian.h \
 		C:/Qt/Qwt/include/qwt_plot_item.h \
 		C:/Qt/Qwt/include/qwt_global.h \
 		C:/Qt/Qwt/include/qwt_text.h \
@@ -661,6 +667,9 @@ debug/SoundRecognition.o: ../SoundRecognition/SoundRecognition.cpp ../SoundRecog
 		C:/Qt/5.4/mingw491_32/include/QtWidgets/QMessageBox \
 		C:/Qt/5.4/mingw491_32/include/QtWidgets/qmessagebox.h \
 		C:/Qt/5.4/mingw491_32/include/QtCore/qmath.h \
+		C:/Qt/5.4/mingw491_32/include/QtCore/QVector \
+		C:/Qt/5.4/mingw491_32/include/QtCore/QtEndian \
+		C:/Qt/5.4/mingw491_32/include/QtCore/qendian.h \
 		C:/Qt/Qwt/include/qwt_plot_item.h \
 		C:/Qt/Qwt/include/qwt_global.h \
 		C:/Qt/Qwt/include/qwt_text.h \
