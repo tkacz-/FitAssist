@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>465</width>
-    <height>352</height>
+    <width>596</width>
+    <height>461</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,39 +19,60 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QPushButton" name="openButton">
+        <property name="text">
+         <string>Open</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="startButton">
+        <property name="text">
+         <string>Start</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="infoButton">
+        <property name="text">
+         <string>Info</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="quitButton">
+        <property name="text">
+         <string>Quit</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
     <item row="0" column="1">
-     <widget class="QWidget" name="controlWidget" native="true">
-      <layout class="QGridLayout" name="gridLayout_3">
-       <item row="1" column="0">
-        <layout class="QHBoxLayout" name="controlButtons">
-         <item>
-          <widget class="QPushButton" name="openButton">
-           <property name="text">
-            <string>Open</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="startButton">
-           <property name="text">
-            <string>Start</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="quitButton">
-           <property name="text">
-            <string>Quit</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item row="0" column="0">
-        <widget class="QwtPlot" name="qwtPlot"/>
-       </item>
-      </layout>
-     </widget>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QwtPlot" name="qwtPlot"/>
+      </item>
+      <item>
+       <widget class="QwtPlot" name="qwtPlot_2"/>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>
@@ -60,15 +81,26 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>465</width>
+     <width>596</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::NoContextMenu</enum>
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
      <string>File</string>
     </property>
+    <widget class="QMenu" name="menuSave">
+     <property name="title">
+      <string>Save</string>
+     </property>
+     <addaction name="actionWave_data"/>
+     <addaction name="actionWave_header"/>
+    </widget>
     <addaction name="actionOpen"/>
+    <addaction name="menuSave"/>
     <addaction name="separator"/>
     <addaction name="actionQuit"/>
    </widget>
@@ -83,6 +115,16 @@
   <action name="actionQuit">
    <property name="text">
     <string>Quit</string>
+   </property>
+  </action>
+  <action name="actionWave_data">
+   <property name="text">
+    <string>Wave-data</string>
+   </property>
+  </action>
+  <action name="actionWave_header">
+   <property name="text">
+    <string>Wave-header</string>
    </property>
   </action>
  </widget>

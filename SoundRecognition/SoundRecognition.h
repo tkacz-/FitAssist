@@ -8,6 +8,7 @@
 #include <QtEndian>
 #include <QVector>
 #include "qmath.h"
+#include <infoDialog.h>
 
 #include "qwt_plot_item.h"
 #include "qwt_plot_histogram.h"
@@ -53,6 +54,8 @@ private slots:
     void on_openButton_pressed();
 
     void on_startButton_pressed();
+
+    void on_infoButton_pressed();
 
 private:
     Ui::SoundRecognition *ui;

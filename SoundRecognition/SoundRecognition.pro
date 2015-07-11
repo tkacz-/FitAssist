@@ -13,11 +13,14 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        SoundRecognition.cpp
+        SoundRecognition.cpp \
+    infoDialog.cpp
 
-HEADERS  += SoundRecognition.h
+HEADERS  += SoundRecognition.h \
+    infoDialog.h
 
-FORMS    += SoundRecognition.ui
+FORMS    += SoundRecognition.ui \
+    infoDialog.ui
 
 INCLUDEPATH += C:/Qt/Qwt/include
 LIBS += C:/Qt/Qwt/lib/qwtd.dll

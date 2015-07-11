@@ -7,20 +7,28 @@ SoundRecognition::SoundRecognition(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->qwtPlot->setTitle(QString("Histogram"));
+    //ui->qwtPlot->setTitle(QString("Histogram"));
 
     grid = new QwtPlotGrid;
     grid->enableXMin(true);
     grid->setMajorPen(QPen(Qt::black,0,Qt::DotLine));
     grid->setMinorPen(QPen(Qt::gray,0,Qt::DotLine));
     grid->attach(ui->qwtPlot);
+    grid = new QwtPlotGrid;
+    grid->enableXMin(true);
+    grid->setMajorPen(QPen(Qt::black,0,Qt::DotLine));
+    grid->setMinorPen(QPen(Qt::gray,0,Qt::DotLine));
+    grid->attach(ui->qwtPlot);
+    grid->attach(ui->qwtPlot_2);
 
-    ui->qwtPlot->setAxisTitle(QwtPlot::xBottom,QString("t"));
+    //ui->qwtPlot->setAxisTitle(QwtPlot::xBottom,QString("t"));
     //ui->qwtPlot->setAxisScale(QwtPlot::xBottom,0,10);
-    ui->qwtPlot->setAxisTitle(QwtPlot::yLeft,QString("U"));
+    //ui->qwtPlot->setAxisTitle(QwtPlot::yLeft,QString("U"));
     //ui->qwtPlot->setAxisScale(QwtPlot::yLeft,0,1);
 
     zoom = new QwtPlotZoomer(ui->qwtPlot->canvas());
+    zoom->setRubberBandPen(QPen(Qt::white));
+    zoom = new QwtPlotZoomer(ui->qwtPlot_2->canvas());
     zoom->setRubberBandPen(QPen(Qt::white));
 }
 
@@ -34,6 +42,7 @@ SoundRecognition::~SoundRecognition()
 QString fileName;
 QVector <qint16> v1(0);
 QVector <qint16> v2(0);
+wav_header_t wavHeader;
 
 void SoundRecognition::on_openButton_pressed()
 {
@@ -55,7 +64,6 @@ void SoundRecognition::open()
         //Read WAV header
         QDataStream analyzeHeader (&wavFile);
         analyzeHeader.setByteOrder(QDataStream::LittleEndian);
-        wav_header_t wavHeader;
         analyzeHeader.readRawData(wavHeader.chunkId, 4); // "RIFF"
         analyzeHeader >> wavHeader.chunkSize; // File Size
         analyzeHeader.readRawData(wavHeader.format,4); // "WAVE"
@@ -150,4 +158,23 @@ void SoundRecognition::DrawHistogram()
     ui->qwtPlot->replot();
     hystogram->setPen(QPen(Qt::black));
     hystogram->setBrush(QBrush(Qt::gray));
+    if(wavHeader.numChannels == 2) {
+        QwtPlotHistogram *hystogram2 = new QwtPlotHistogram;
+        QVector<QwtIntervalSample> *intervals2 = new QVector<QwtIntervalSample>;
+        qint16* data2 = v2.data();
+        int di2 = 1;
+        for (qint32 i=0; i <= v2.size(); i += di)
+            intervals2->append(QwtIntervalSample(qAbs(data2[i]), i, i + di2));
+        hystogram2->setSamples(*intervals2);
+        hystogram2->attach(ui->qwtPlot_2);
+        ui->qwtPlot_2->replot();
+        hystogram2->setPen(QPen(Qt::black));
+        hystogram2->setBrush(QBrush(Qt::gray));
+    }
+}
+
+void SoundRecognition::on_infoButton_pressed()
+{
+    infoDialog* my = new infoDialog;
+    my->show();
 }
