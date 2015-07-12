@@ -14,6 +14,7 @@ SoundRecognition::SoundRecognition(QWidget *parent) :
     grid->setMajorPen(QPen(Qt::black,0,Qt::DotLine));
     grid->setMinorPen(QPen(Qt::gray,0,Qt::DotLine));
     grid->attach(ui->qwtPlot);
+
     grid = new QwtPlotGrid;
     grid->enableXMin(true);
     grid->setMajorPen(QPen(Qt::black,0,Qt::DotLine));

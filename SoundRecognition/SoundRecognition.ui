@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>596</width>
-    <height>461</height>
+    <width>357</width>
+    <height>531</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <normaloff>icon.ico</normaloff>icon.ico</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QGridLayout" name="gridLayout">
+   <layout class="QFormLayout" name="formLayout">
     <item row="0" column="0">
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
@@ -70,7 +70,9 @@
        <widget class="QwtPlot" name="qwtPlot"/>
       </item>
       <item>
-       <widget class="QwtPlot" name="qwtPlot_2"/>
+       <widget class="QwtPlot" name="qwtPlot_2">
+        <zorder>qwtPlot</zorder>
+       </widget>
       </item>
      </layout>
     </item>
@@ -81,7 +83,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>596</width>
+     <width>357</width>
      <height>21</height>
     </rect>
    </property>
@@ -148,8 +150,8 @@
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>388</x>
-     <y>227</y>
+     <x>84</x>
+     <y>140</y>
     </hint>
     <hint type="destinationlabel">
      <x>239</x>
