@@ -12,3 +12,8 @@ infoDialog::~infoDialog()
 {
     delete ui;
 }
+
+void infoDialog::receiveData(QString str)
+{
+    ui->size->setText(str);
+}

@@ -15,6 +15,9 @@ public:
     explicit infoDialog(QWidget *parent = 0);
     ~infoDialog();
 
+public slots:
+    void receiveData(QString str);
+
 private:
     Ui::infoDialog *ui;
 };

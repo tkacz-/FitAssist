@@ -46,10 +46,15 @@ public:
     explicit SoundRecognition(QWidget *parent = 0);
     ~SoundRecognition();
 
+signals:
+    void sendData(QString str);
+
 private slots:
     void open();
 
     void DrawHistogram();
+
+    void writeInfo();
 
     void on_openButton_pressed();
 
@@ -59,6 +64,8 @@ private slots:
 
 private:
     Ui::SoundRecognition *ui;
+
+    infoDialog* info;
 
     QwtPlotGrid *grid;
 

@@ -31,6 +31,7 @@ SoundRecognition::SoundRecognition(QWidget *parent) :
     zoom->setRubberBandPen(QPen(Qt::white));
     zoom = new QwtPlotZoomer(ui->qwtPlot_2->canvas());
     zoom->setRubberBandPen(QPen(Qt::white));
+    info = new infoDialog();
 }
 
 SoundRecognition::~SoundRecognition()
@@ -176,6 +177,13 @@ void SoundRecognition::DrawHistogram()
 
 void SoundRecognition::on_infoButton_pressed()
 {
-    infoDialog* my = new infoDialog;
-    my->show();
+    connect(ui->infoButton, &QAbstractButton::pressed, this, &SoundRecognition::writeInfo);
 }
+
+void SoundRecognition::writeInfo()
+{
+    connect(this, SIGNAL(sendData(QString)), info, SLOT(receiveData(QString)));
+    emit sendData(QString::number(wavHeader.chunkSize));
+    info->show();
+}
+
