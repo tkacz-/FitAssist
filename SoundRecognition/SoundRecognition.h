@@ -9,6 +9,7 @@
 #include <QVector>
 #include "qmath.h"
 #include <infoDialog.h>
+#include <QFileInfo>
 
 #include "qwt_plot_item.h"
 #include "qwt_plot_histogram.h"
@@ -47,7 +48,7 @@ public:
     ~SoundRecognition();
 
 signals:
-    void sendData(QString str);
+    void sendData(QVector <QString> v);
 
 private slots:
     void open();

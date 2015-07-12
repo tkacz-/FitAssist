@@ -16,7 +16,7 @@ public:
     ~infoDialog();
 
 public slots:
-    void receiveData(QString str);
+    void receiveData(QVector <QString> v);
 
 private:
     Ui::infoDialog *ui;

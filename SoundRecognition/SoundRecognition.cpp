@@ -182,8 +182,20 @@ void SoundRecognition::on_infoButton_pressed()
 
 void SoundRecognition::writeInfo()
 {
-    connect(this, SIGNAL(sendData(QString)), info, SLOT(receiveData(QString)));
-    emit sendData(QString::number(wavHeader.chunkSize));
+    connect(this, SIGNAL(sendData(QVector <QString>)), info, SLOT(receiveData(QVector <QString>)));
+    QVector <QString> data(0);
+    data.append(wavHeader.chunkId);
+    data.append(QString::number(wavHeader.chunkSize));
+    data.append(wavHeader.format);
+    data.append(wavHeader.subchunk1ID);
+    data.append(QString::number(wavHeader.subchunk1Size));
+    data.append(QString::number(wavHeader.audioFormat));
+    data.append(QString::number(wavHeader.numChannels));
+    data.append(QString::number(wavHeader.sampleRate));
+    data.append(QString::number(wavHeader.byteRate));
+    data.append(QString::number(wavHeader.blockAlign));
+    data.append(QString::number(wavHeader.bitsPerSample));
+    emit sendData(data);
     info->show();
 }
 
