@@ -27,4 +27,7 @@ void infoDialog::receiveData(QVector <QString> v)
     ui->brate->setText(str[8]);
     ui->balign->setText(str[9]);
     ui->bitspersample->setText(str[10]);
+    ui->created->setText(str[11]);
+    ui->touched->setText(str[12]);
+    ui->filesize->setText(str[13]);
 }

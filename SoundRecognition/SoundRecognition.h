@@ -10,6 +10,7 @@
 #include "qmath.h"
 #include <infoDialog.h>
 #include <QFileInfo>
+#include <QDateTime>
 
 #include "qwt_plot_item.h"
 #include "qwt_plot_histogram.h"
@@ -56,6 +57,8 @@ private slots:
     void DrawHistogram();
 
     void writeInfo();
+
+    QString fileSize(qint64 nSize);
 
     void on_openButton_pressed();
 
