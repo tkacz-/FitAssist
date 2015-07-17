@@ -2,15 +2,12 @@
 #define SOUNDRECOGNITION_H
 
 #include <QMainWindow>
-#include <QWidget>
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QtEndian>
-#include <QVector>
-#include "qmath.h"
-#include <infoDialog.h>
-#include <QFileInfo>
 #include <QDateTime>
+#include "qmath.h"
+#include "infoDialog.h"
 
 #include "qwt_plot_item.h"
 #include "qwt_plot_histogram.h"

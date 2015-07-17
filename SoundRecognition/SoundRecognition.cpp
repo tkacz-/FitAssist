@@ -198,7 +198,7 @@ void SoundRecognition::writeInfo()
     QFileInfo f(fileName);
     data.append(f.created().toString("MM/dd/yyyy hh:mm:ss"));
     data.append(f.lastModified().toString("MM/dd/yyyy hh:mm:ss"));
-    data.append(QString::number(f.size()));
+    data.append(QString::number(f.size()) + " B");
     emit sendData(data);
     info->show();
 }
@@ -207,6 +207,6 @@ QString SoundRecognition::fileSize(qint64 nSize)
 {
     qint64 i = 0;
     for (; nSize > 1023; nSize /= 1024, ++i) {}
-    return QString().setNum(nSize) + "BKMGT"[i];
+    return QString().setNum(nSize) + " " + "BKMGT"[i];
 }
 
