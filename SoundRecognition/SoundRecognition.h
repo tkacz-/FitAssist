@@ -57,11 +57,29 @@ private slots:
 
     QString fileSize(qint64 nSize);
 
+    void vecAbs(QVector <qint16> &v, quint32 n);
+
+    quint32 sum(QVector <qint16> v, quint32 n);
+
+    double mx(quint32 s, quint32 n);
+
+    void delta(QVector <qint16> &v, quint32 n, double mx);
+
+    double sigma(quint32 s, quint32 n);
+
+    double asimetria(quint32 s, quint32 n, double sig);
+
+    double ex(quint32 s, quint32 n, double sig);
+
+    void calculate();
+
     void on_openButton_pressed();
 
     void on_startButton_pressed();
 
     void on_infoButton_pressed();
+
+    void on_calculateButton_pressed();
 
 private:
     Ui::SoundRecognition *ui;

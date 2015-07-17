@@ -210,3 +210,78 @@ QString SoundRecognition::fileSize(qint64 nSize)
     return QString().setNum(nSize) + " " + "BKMGT"[i];
 }
 
+void SoundRecognition::vecAbs(QVector <qint16> &v, quint32 n)
+{
+    qint16* data = v.data();
+    for (quint32 i = 0; i < n; i++)
+    {
+        data[i] = qAbs(data[i]);
+    }
+}
+
+quint32 SoundRecognition::sum(QVector <qint16> v, quint32 n)
+{
+    qint16* data = v.data();
+    quint32 s = 0;
+    for (quint32 i = 0; i < n; i++)
+        s += data[i];
+    return s;
+}
+
+double SoundRecognition::mx(quint32 s, quint32 n)
+{
+    double m = s / n;
+    return m;
+}
+
+void SoundRecognition::delta(QVector <qint16> &v, quint32 n, double mx)
+{
+    qint16* data = v.data();
+    for (quint32 i = 0; i < n; i++)
+    {
+        data[i] -= mx;
+    }
+}
+
+double SoundRecognition::sigma(quint32 s, quint32 n)
+{
+    double res = qSqrt(s / (n - 1));
+    return res;
+}
+
+double SoundRecognition::asimetria(quint32 s, quint32 n, double sig)
+{
+    double res = s / (n * qPow(sig,3));
+    return res;
+}
+
+double SoundRecognition::ex(quint32 s, quint32 n, double sig)
+{
+    double res = s / (n * qPow(sig,4)) - 3;
+    return res;
+}
+
+void SoundRecognition::on_calculateButton_pressed()
+{
+    connect(ui->calculateButton, QAbstractButton::pressed, this, &SoundRecognition::calculate);
+}
+
+void SoundRecognition::calculate()
+{
+    quint32 size = v1.size();
+    SoundRecognition::vecAbs(v1, size);
+    quint32 s = sum(v1, size);
+    quint32 m = mx(s, size);
+    delta(v1, size, m);
+    delta(v1, size, m);
+    quint32 s1 = sum(v1, size);
+    double sig = sigma(s1, size);
+    delta(v1, size, m);
+    quint32 s2 = sum(v1, size);
+    double as1 = asimetria(s2, size, sig);
+    ui->asum->setText(QString::number(as1));
+    delta(v1, size, m);
+    quint32 s3 = sum(v1, size);
+    double ex1 = ex(s3, size, sig);
+    ui->exec->setText(QString::number(ex1));
+}
