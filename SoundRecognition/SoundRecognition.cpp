@@ -1,6 +1,7 @@
 #include "SoundRecognition.h"
 #include "ui_SoundRecognition.h"
 
+
 SoundRecognition::SoundRecognition(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::SoundRecognition)
@@ -15,6 +16,7 @@ SoundRecognition::SoundRecognition(QWidget *parent) :
     grid->setMinorPen(QPen(Qt::gray,0,Qt::DotLine));
     grid->attach(ui->qwtPlot);
 
+<<<<<<< HEAD
     grid = new QwtPlotGrid;
     grid->enableXMin(true);
     grid->setMajorPen(QPen(Qt::black,0,Qt::DotLine));
@@ -25,6 +27,11 @@ SoundRecognition::SoundRecognition(QWidget *parent) :
     //ui->qwtPlot->setAxisTitle(QwtPlot::xBottom,QString("t"));
     //ui->qwtPlot->setAxisScale(QwtPlot::xBottom,0,10);
     //ui->qwtPlot->setAxisTitle(QwtPlot::yLeft,QString("U"));
+=======
+    ui->qwtPlot->setAxisTitle(QwtPlot::xBottom,QString("t"));
+    //ui->qwtPlot->setAxisScale(QwtPlot::xBottom,0,10);
+    ui->qwtPlot->setAxisTitle(QwtPlot::yLeft,QString("U"));
+>>>>>>> origin/master
     //ui->qwtPlot->setAxisScale(QwtPlot::yLeft,0,1);
 
     zoom = new QwtPlotZoomer(ui->qwtPlot->canvas());
@@ -42,9 +49,14 @@ SoundRecognition::~SoundRecognition()
 }
 
 QString fileName;
+<<<<<<< HEAD
 QVector <qint16> v1(0);
 QVector <qint16> v2(0);
 wav_header_t wavHeader;
+=======
+QVector<qint16> v1(0);
+QVector<qint16> v2(0);
+>>>>>>> origin/master
 
 void SoundRecognition::on_openButton_pressed()
 {
@@ -62,6 +74,7 @@ void SoundRecognition::open()
             QMessageBox::critical(this, tr("Error"), tr("Could not open file!"));
             return;
         }
+<<<<<<< HEAD
 
         //Read WAV header
         QDataStream analyzeHeader (&wavFile);
@@ -78,12 +91,39 @@ void SoundRecognition::open()
         analyzeHeader >> wavHeader.blockAlign; // (BitsPerSample * Channels) / 8.1
         analyzeHeader >> wavHeader.bitsPerSample; // Bits per sample
 
+=======
+        QByteArray wavFileContent = wavFile.readAll();
+
+        QDataStream analyzeHeaderDS(&wavFileContent,QIODevice::ReadOnly);
+        analyzeHeaderDS.setByteOrder(QDataStream::LittleEndian);
+
+        // Now pop off the appropriate data into each header field defined above
+        wav_header_t wavHeader;
+        analyzeHeaderDS.readRawData(wavHeader.chunkId, 4); // "RIFF"
+        analyzeHeaderDS >> wavHeader.chunkSize; // File Size
+        analyzeHeaderDS.readRawData(wavHeader.format,4); // "WAVE"
+        analyzeHeaderDS.readRawData(wavHeader.subchunk1ID,4); // "fmt"
+        analyzeHeaderDS >> wavHeader.subchunk1Size; // Format length
+        analyzeHeaderDS >> wavHeader.audioFormat; // Format type
+        analyzeHeaderDS >> wavHeader.numChannels; // Number of channels
+        analyzeHeaderDS >> wavHeader.sampleRate; // Sample rate
+        analyzeHeaderDS >> wavHeader.byteRate; // (Sample Rate * BitsPerSample * Channels) / 8
+        analyzeHeaderDS >> wavHeader.blockAlign; // (BitsPerSample * Channels) / 8.1
+        analyzeHeaderDS >> wavHeader.bitsPerSample; // Bits per sample
+        wavFile.close();
+        QFile wavFile1(fileName);
+        wavFile1.open(QFile::ReadOnly);
+>>>>>>> origin/master
         quint32 chunkDataSize = 0;
         QByteArray temp_buff;
         char buff[0x04];
         while (true)
         {
+<<<<<<< HEAD
             QByteArray tmp = wavFile.read(0x04);
+=======
+            QByteArray tmp = wavFile1.read(0x04);
+>>>>>>> origin/master
             temp_buff.append(tmp);
             int idx = temp_buff.indexOf("data");
             if (idx >= 0)
@@ -94,7 +134,11 @@ void SoundRecognition::open()
                 // finish readind size of chunk
                 if (bytesToRead > 0)
                 {
+<<<<<<< HEAD
                     int read = wavFile.read(buff + lenOfData, bytesToRead);
+=======
+                    int read = wavFile1.read(buff + lenOfData, bytesToRead);
+>>>>>>> origin/master
                     if (bytesToRead != read)
                     {
                         QMessageBox::critical(this, tr("Error"), tr("Something awful happens!"));
@@ -115,7 +159,16 @@ void SoundRecognition::open()
             return;
         }
         int samples = 0;
+<<<<<<< HEAD
         while (wavFile.read(buff, 0x04) > 0)
+=======
+        QString fileToSave = "list.dat";
+        QFile saveFile(fileToSave);
+        saveFile.open(QIODevice::WriteOnly);
+        if (wavHeader.numChannels == 2)
+            saveFile.write("1\t 2\r\n");
+        while (wavFile1.read(buff, 0x04) > 0)
+>>>>>>> origin/master
         {
             chunkDataSize -= 4;
             ++samples;
@@ -123,6 +176,7 @@ void SoundRecognition::open()
             qint16 sampleCannel2 = qFromLittleEndian<qint16>((const uchar*)(buff + 2));
             switch (wavHeader.numChannels) {
             case 1:
+<<<<<<< HEAD
                 v1.append(sampleCannel1);
                 v1.append(sampleCannel2);
                 break;
@@ -131,14 +185,42 @@ void SoundRecognition::open()
                 v2.append(sampleCannel2);
                 break;
             }
+=======
+                if (saveFile.isOpen())
+                {
+                    v1.append(sampleCannel1);
+                    v1.append(sampleCannel2);
+                    saveFile.write(QString("%1\r\n %2\r\n").arg(sampleCannel1).arg(sampleCannel2).toUtf8());
+                }
+                break;
+            case 2:
+                if (saveFile.isOpen())
+                {
+                    v1.append(sampleCannel1);
+                    v2.append(sampleCannel2);
+                    saveFile.write(QString("%1\t %2\r\n").arg(sampleCannel1).arg(sampleCannel2).toUtf8());
+                }
+                break;
+            }
+
+>>>>>>> origin/master
             // check the end of the file
             if (chunkDataSize == 0 || chunkDataSize & 0x80000000)
             {
                 break;
             }
         }
+<<<<<<< HEAD
         QMessageBox::information(this, "Reading complete","Readed " + QString::number(samples) + " samples...");
         wavFile.close();
+=======
+        QMessageBox::information(this, "Reading complete", "Readed " + QString::number(samples) + " samples...");
+        wavFile1.close();
+        if (saveFile.isOpen())
+        {
+            saveFile.close();
+        }
+>>>>>>> origin/master
     }
 }
 
@@ -151,9 +233,15 @@ void SoundRecognition::DrawHistogram()
 {
     QwtPlotHistogram *hystogram = new QwtPlotHistogram;
     QVector<QwtIntervalSample> *intervals = new QVector<QwtIntervalSample>;
+<<<<<<< HEAD
     qint16* data = v1.data();
     int di = 1;
     for (qint32 i=0; i <= v1.size(); i += di)
+=======
+    qint16 *data = v1.data();
+    quint16 di = 1;
+    for (quint32 i = 0; i <= v1.size(); i += di)
+>>>>>>> origin/master
         intervals->append(QwtIntervalSample(qAbs(data[i]), i, i + di));
     hystogram->setSamples(*intervals);
     hystogram->attach(ui->qwtPlot);
@@ -284,4 +372,11 @@ void SoundRecognition::calculate()
     quint32 s3 = sum(v1, size);
     double ex1 = ex(s3, size, sig);
     ui->exec->setText(QString::number(ex1));
+}
+
+void SoundRecognition::on_infoButton_pressed()
+{
+    connect(ui->startButton, &QAbstractButton::pressed, this, &SoundRecognition::DrawHistogram);
+    infoDialog *frm = new infoDialog;
+    frm->show();
 }

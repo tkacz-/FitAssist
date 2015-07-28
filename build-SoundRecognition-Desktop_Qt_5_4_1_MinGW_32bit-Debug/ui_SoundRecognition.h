@@ -38,6 +38,7 @@ public:
     QHBoxLayout *controlButtons;
     QPushButton *openButton;
     QPushButton *startButton;
+    QPushButton *infoButton;
     QPushButton *quitButton;
     QwtPlot *qwtPlot;
     QMenuBar *menuBar;
@@ -80,6 +81,11 @@ public:
         startButton->setObjectName(QStringLiteral("startButton"));
 
         controlButtons->addWidget(startButton);
+
+        infoButton = new QPushButton(controlWidget);
+        infoButton->setObjectName(QStringLiteral("infoButton"));
+
+        controlButtons->addWidget(infoButton);
 
         quitButton = new QPushButton(controlWidget);
         quitButton->setObjectName(QStringLiteral("quitButton"));
@@ -126,6 +132,7 @@ public:
         actionQuit->setText(QApplication::translate("SoundRecognition", "Quit", 0));
         openButton->setText(QApplication::translate("SoundRecognition", "Open", 0));
         startButton->setText(QApplication::translate("SoundRecognition", "Start", 0));
+        infoButton->setText(QApplication::translate("SoundRecognition", "File Info", 0));
         quitButton->setText(QApplication::translate("SoundRecognition", "Quit", 0));
         menuFile->setTitle(QApplication::translate("SoundRecognition", "File", 0));
     } // retranslateUi

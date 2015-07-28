@@ -27,6 +27,7 @@ class Ui_infoDialog
 {
 public:
     QGridLayout *gridLayout;
+<<<<<<< HEAD
     QGroupBox *fileGroupBox;
     QHBoxLayout *horizontalLayout;
     QVBoxLayout *verticalLayout;
@@ -40,12 +41,33 @@ public:
     QGroupBox *headerGroupBox;
     QHBoxLayout *horizontalLayout_2;
     QVBoxLayout *verticalLayout_3;
+=======
+    QGroupBox *infoGroupBox;
+    QHBoxLayout *horizontalLayout;
+    QVBoxLayout *verticalLayout;
+    QLabel *label;
+    QLabel *label_2;
+    QLabel *label_3;
+    QVBoxLayout *verticalLayout_2;
+    QLabel *fileSize;
+    QLabel *touched;
+    QLabel *created;
+    QGroupBox *headerGroupBox;
+    QHBoxLayout *horizontalLayout_2;
+    QVBoxLayout *verticalLayout_3;
+    QLabel *label_4;
+    QLabel *label_5;
+    QLabel *label_6;
+    QLabel *label_7;
+    QLabel *label_8;
+>>>>>>> origin/master
     QLabel *label_9;
     QLabel *label_10;
     QLabel *label_11;
     QLabel *label_12;
     QLabel *label_13;
     QLabel *label_14;
+<<<<<<< HEAD
     QLabel *label_15;
     QLabel *label_16;
     QLabel *label_17;
@@ -63,11 +85,26 @@ public:
     QLabel *brate;
     QLabel *balign;
     QLabel *bitspersample;
+=======
+    QVBoxLayout *verticalLayout_4;
+    QLabel *fileType;
+    QLabel *fileSize_2;
+    QLabel *marker;
+    QLabel *formatName;
+    QLabel *formatLenght;
+    QLabel *formatType;
+    QLabel *nChannels;
+    QLabel *sRate;
+    QLabel *bRate;
+    QLabel *bAlign;
+    QLabel *bits;
+>>>>>>> origin/master
 
     void setupUi(QDialog *infoDialog)
     {
         if (infoDialog->objectName().isEmpty())
             infoDialog->setObjectName(QStringLiteral("infoDialog"));
+<<<<<<< HEAD
         infoDialog->resize(252, 367);
         gridLayout = new QGridLayout(infoDialog);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
@@ -83,20 +120,45 @@ public:
         verticalLayout->addWidget(label_3);
 
         label_2 = new QLabel(fileGroupBox);
+=======
+        infoDialog->resize(401, 340);
+        gridLayout = new QGridLayout(infoDialog);
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        infoGroupBox = new QGroupBox(infoDialog);
+        infoGroupBox->setObjectName(QStringLiteral("infoGroupBox"));
+        horizontalLayout = new QHBoxLayout(infoGroupBox);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        label = new QLabel(infoGroupBox);
+        label->setObjectName(QStringLiteral("label"));
+
+        verticalLayout->addWidget(label);
+
+        label_2 = new QLabel(infoGroupBox);
+>>>>>>> origin/master
         label_2->setObjectName(QStringLiteral("label_2"));
 
         verticalLayout->addWidget(label_2);
 
+<<<<<<< HEAD
         label_4 = new QLabel(fileGroupBox);
         label_4->setObjectName(QStringLiteral("label_4"));
 
         verticalLayout->addWidget(label_4);
+=======
+        label_3 = new QLabel(infoGroupBox);
+        label_3->setObjectName(QStringLiteral("label_3"));
+
+        verticalLayout->addWidget(label_3);
+>>>>>>> origin/master
 
 
         horizontalLayout->addLayout(verticalLayout);
 
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+<<<<<<< HEAD
         filesize = new QLabel(fileGroupBox);
         filesize->setObjectName(QStringLiteral("filesize"));
 
@@ -108,15 +170,35 @@ public:
         verticalLayout_2->addWidget(created);
 
         touched = new QLabel(fileGroupBox);
+=======
+        fileSize = new QLabel(infoGroupBox);
+        fileSize->setObjectName(QStringLiteral("fileSize"));
+
+        verticalLayout_2->addWidget(fileSize);
+
+        touched = new QLabel(infoGroupBox);
+>>>>>>> origin/master
         touched->setObjectName(QStringLiteral("touched"));
 
         verticalLayout_2->addWidget(touched);
 
+<<<<<<< HEAD
+=======
+        created = new QLabel(infoGroupBox);
+        created->setObjectName(QStringLiteral("created"));
+
+        verticalLayout_2->addWidget(created);
+
+>>>>>>> origin/master
 
         horizontalLayout->addLayout(verticalLayout_2);
 
 
+<<<<<<< HEAD
         gridLayout->addWidget(fileGroupBox, 0, 0, 1, 1);
+=======
+        gridLayout->addWidget(infoGroupBox, 0, 0, 1, 1);
+>>>>>>> origin/master
 
         headerGroupBox = new QGroupBox(infoDialog);
         headerGroupBox->setObjectName(QStringLiteral("headerGroupBox"));
@@ -124,6 +206,34 @@ public:
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+<<<<<<< HEAD
+=======
+        label_4 = new QLabel(headerGroupBox);
+        label_4->setObjectName(QStringLiteral("label_4"));
+
+        verticalLayout_3->addWidget(label_4);
+
+        label_5 = new QLabel(headerGroupBox);
+        label_5->setObjectName(QStringLiteral("label_5"));
+
+        verticalLayout_3->addWidget(label_5);
+
+        label_6 = new QLabel(headerGroupBox);
+        label_6->setObjectName(QStringLiteral("label_6"));
+
+        verticalLayout_3->addWidget(label_6);
+
+        label_7 = new QLabel(headerGroupBox);
+        label_7->setObjectName(QStringLiteral("label_7"));
+
+        verticalLayout_3->addWidget(label_7);
+
+        label_8 = new QLabel(headerGroupBox);
+        label_8->setObjectName(QStringLiteral("label_8"));
+
+        verticalLayout_3->addWidget(label_8);
+
+>>>>>>> origin/master
         label_9 = new QLabel(headerGroupBox);
         label_9->setObjectName(QStringLiteral("label_9"));
 
@@ -154,6 +264,7 @@ public:
 
         verticalLayout_3->addWidget(label_14);
 
+<<<<<<< HEAD
         label_15 = new QLabel(headerGroupBox);
         label_15->setObjectName(QStringLiteral("label_15"));
 
@@ -179,6 +290,8 @@ public:
 
         verticalLayout_3->addWidget(label_19);
 
+=======
+>>>>>>> origin/master
 
         horizontalLayout_2->addLayout(verticalLayout_3);
 
@@ -189,16 +302,24 @@ public:
 
         verticalLayout_4->addWidget(fileType);
 
+<<<<<<< HEAD
         size = new QLabel(headerGroupBox);
         size->setObjectName(QStringLiteral("size"));
 
         verticalLayout_4->addWidget(size);
+=======
+        fileSize_2 = new QLabel(headerGroupBox);
+        fileSize_2->setObjectName(QStringLiteral("fileSize_2"));
+
+        verticalLayout_4->addWidget(fileSize_2);
+>>>>>>> origin/master
 
         marker = new QLabel(headerGroupBox);
         marker->setObjectName(QStringLiteral("marker"));
 
         verticalLayout_4->addWidget(marker);
 
+<<<<<<< HEAD
         name = new QLabel(headerGroupBox);
         name->setObjectName(QStringLiteral("name"));
 
@@ -213,12 +334,29 @@ public:
         ftype->setObjectName(QStringLiteral("ftype"));
 
         verticalLayout_4->addWidget(ftype);
+=======
+        formatName = new QLabel(headerGroupBox);
+        formatName->setObjectName(QStringLiteral("formatName"));
+
+        verticalLayout_4->addWidget(formatName);
+
+        formatLenght = new QLabel(headerGroupBox);
+        formatLenght->setObjectName(QStringLiteral("formatLenght"));
+
+        verticalLayout_4->addWidget(formatLenght);
+
+        formatType = new QLabel(headerGroupBox);
+        formatType->setObjectName(QStringLiteral("formatType"));
+
+        verticalLayout_4->addWidget(formatType);
+>>>>>>> origin/master
 
         nChannels = new QLabel(headerGroupBox);
         nChannels->setObjectName(QStringLiteral("nChannels"));
 
         verticalLayout_4->addWidget(nChannels);
 
+<<<<<<< HEAD
         srate = new QLabel(headerGroupBox);
         srate->setObjectName(QStringLiteral("srate"));
 
@@ -238,6 +376,27 @@ public:
         bitspersample->setObjectName(QStringLiteral("bitspersample"));
 
         verticalLayout_4->addWidget(bitspersample);
+=======
+        sRate = new QLabel(headerGroupBox);
+        sRate->setObjectName(QStringLiteral("sRate"));
+
+        verticalLayout_4->addWidget(sRate);
+
+        bRate = new QLabel(headerGroupBox);
+        bRate->setObjectName(QStringLiteral("bRate"));
+
+        verticalLayout_4->addWidget(bRate);
+
+        bAlign = new QLabel(headerGroupBox);
+        bAlign->setObjectName(QStringLiteral("bAlign"));
+
+        verticalLayout_4->addWidget(bAlign);
+
+        bits = new QLabel(headerGroupBox);
+        bits->setObjectName(QStringLiteral("bits"));
+
+        verticalLayout_4->addWidget(bits);
+>>>>>>> origin/master
 
 
         horizontalLayout_2->addLayout(verticalLayout_4);
@@ -253,6 +412,7 @@ public:
 
     void retranslateUi(QDialog *infoDialog)
     {
+<<<<<<< HEAD
         infoDialog->setWindowTitle(QApplication::translate("infoDialog", "Info about the file", 0));
         fileGroupBox->setTitle(QApplication::translate("infoDialog", "File info:", 0));
         label_3->setText(QApplication::translate("infoDialog", "File size:", 0));
@@ -284,6 +444,39 @@ public:
         brate->setText(QString());
         balign->setText(QString());
         bitspersample->setText(QString());
+=======
+        infoDialog->setWindowTitle(QApplication::translate("infoDialog", "File Info", 0));
+        infoGroupBox->setTitle(QApplication::translate("infoDialog", "Input file", 0));
+        label->setText(QApplication::translate("infoDialog", "File Size:", 0));
+        label_2->setText(QApplication::translate("infoDialog", "Touched:", 0));
+        label_3->setText(QApplication::translate("infoDialog", "File created:", 0));
+        fileSize->setText(QString());
+        touched->setText(QString());
+        created->setText(QString());
+        headerGroupBox->setTitle(QApplication::translate("infoDialog", "Wav Header info", 0));
+        label_4->setText(QApplication::translate("infoDialog", "File Type:", 0));
+        label_5->setText(QApplication::translate("infoDialog", "File Size:", 0));
+        label_6->setText(QApplication::translate("infoDialog", "Wav Marker:", 0));
+        label_7->setText(QApplication::translate("infoDialog", "Format Name:", 0));
+        label_8->setText(QApplication::translate("infoDialog", "Format Length:", 0));
+        label_9->setText(QApplication::translate("infoDialog", "Format Type:", 0));
+        label_10->setText(QApplication::translate("infoDialog", "Number of channels:", 0));
+        label_11->setText(QApplication::translate("infoDialog", "Sample rate:", 0));
+        label_12->setText(QApplication::translate("infoDialog", "Byte rate:", 0));
+        label_13->setText(QApplication::translate("infoDialog", "Block align:", 0));
+        label_14->setText(QApplication::translate("infoDialog", "Bits per sample", 0));
+        fileType->setText(QString());
+        fileSize_2->setText(QString());
+        marker->setText(QString());
+        formatName->setText(QString());
+        formatLenght->setText(QString());
+        formatType->setText(QString());
+        nChannels->setText(QString());
+        sRate->setText(QString());
+        bRate->setText(QString());
+        bAlign->setText(QString());
+        bits->setText(QString());
+>>>>>>> origin/master
     } // retranslateUi
 
 };
