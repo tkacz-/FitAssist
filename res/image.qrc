@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/action">
+        <file>images/add.png</file>
+        <file>images/delete.png</file>
+        <file>images/edit.png</file>
+    </qresource>
+    <qresource prefix="/menu">
+        <file>images/calculator.png</file>
+        <file>images/norms.png</file>
+        <file>images/statistics.png</file>
+        <file>images/help.png</file>
+    </qresource>
+    <qresource prefix="/logo">
+        <file>images/logo.ico</file>
+    </qresource>
+</RCC>
