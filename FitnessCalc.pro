@@ -19,16 +19,20 @@ QMAKE_TARGET_DESCRIPTION = Simple fitness calculator
 SOURCES += main.cpp\
         FitnessCalc.cpp \
     aboutDialog.cpp \
-    profile.cpp
+    profile.cpp \
+    piechart.cpp
 
 HEADERS  += FitnessCalc.h \
     aboutDialog.h \
-    profile.h
+    profile.h \
+    piechart.h
 
 FORMS    += FitnessCalc.ui \
     aboutDialog.ui
 
 RC_ICONS = res/images/logo.ico
+
+CONFIG += c++11
 
 RESOURCES += \
     res/image.qrc

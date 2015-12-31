@@ -1,5 +1,10 @@
 #include "profile.h"
 
+Profile::Profile()
+{
+
+}
+
 Profile::Profile(float w, short h, short age, QString g, float a)
 {
     setWeigth(w);
@@ -93,7 +98,7 @@ void Profile::setWeigth(float w)
     weight = w;
 }
 
-float Profile::getWeigth()
+float Profile::getWeigth() const
 {
     return weight;
 }
@@ -103,7 +108,7 @@ void Profile::setHeigth(short h)
     height = h;
 }
 
-short Profile::getHeigth()
+short Profile::getHeigth() const
 {
     return height;
 }
@@ -113,7 +118,7 @@ void Profile::setAge(short age)
     this->age = age;
 }
 
-short Profile::getAge()
+short Profile::getAge() const
 {
     return age;
 }
@@ -123,7 +128,7 @@ void Profile::setGender(QString g)
     gender = g;
 }
 
-QString Profile::getGender()
+QString Profile::getGender() const
 {
     return gender;
 }
@@ -133,7 +138,7 @@ void Profile::setActivity(float w)
     activity = w;
 }
 
-float Profile::getActivity()
+float Profile::getActivity() const
 {
     return activity;
 }
@@ -143,7 +148,7 @@ void Profile::setBMI(double temp)
     bmi = temp;
 }
 
-double Profile::getBMI()
+double Profile::getBMI() const
 {
     return bmi;
 }
@@ -153,7 +158,7 @@ void Profile::setConclusion(QString temp)
     conclusion = temp;
 }
 
-QString Profile::getConclusion()
+QString Profile::getConclusion() const
 {
     return conclusion;
 }
@@ -163,7 +168,7 @@ void Profile::setOptimalWeightMin(double temp)
     minWeight = temp;
 }
 
-double Profile::getOptimalWeightMin()
+double Profile::getOptimalWeightMin() const
 {
     return minWeight;
 }
@@ -173,7 +178,7 @@ void Profile::setOptimalWeightMax(double temp)
     maxWeight = temp;
 }
 
-double Profile::getOptimalWeightMax()
+double Profile::getOptimalWeightMax() const
 {
     return maxWeight;
 }
@@ -183,7 +188,7 @@ void Profile::setBMR(double temp)
     bmr = temp;
 }
 
-double Profile::getBMR()
+double Profile::getBMR() const
 {
     return bmr;
 }
@@ -193,7 +198,7 @@ void Profile::setWater(double temp)
     water = temp;
 }
 
-double Profile::getWater()
+double Profile::getWater() const
 {
     return water;
 }

@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QListWidgetItem>
 #include <QMessageBox>
+#include <QFile>
+#include <QDir>
 
 #include "aboutDialog.h"
 #include "profile.h"
@@ -27,6 +29,9 @@ public slots:
 
 private:
     Ui::FitnessCalc *ui;
+    const QString fileName = "profile/profile.dat";
+
+    Profile profile;
 };
 
 #endif // FITNESSCALC_H
