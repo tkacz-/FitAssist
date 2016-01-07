@@ -2,9 +2,7 @@
 
 PieChart::PieChart(QWidget *parent) : QWidget(parent)
 {
-    QSizePolicy p(sizePolicy());
-    p.setHeightForWidth(true);
-    setSizePolicy(p);
+
 }
 
 void PieChart::paintEvent(QPaintEvent *)
@@ -36,6 +34,11 @@ void PieChart::paintEvent(QPaintEvent *)
     //Углеводы
     painter.setBrush(QColor("#B276B2"));
     painter.drawPie(size, 180*16, 180*16); //carbohydrate * 360 / sum
+}
+
+void PieChart::resizeEvent(QResizeEvent *)
+{
+    setGeometry(x(), y(), qMin(width(), height()), qMin(width(), height()));
 }
 
 void PieChart::getPFC(int protein, int fat, int carbonhydrate)

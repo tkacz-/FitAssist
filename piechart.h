@@ -13,6 +13,9 @@ public:
 
     void paintEvent(QPaintEvent *);
 
+protected:
+    void resizeEvent(QResizeEvent *);
+
 signals:
     void sendPFC(int protein, int fat, int carbonhydrate);
 

@@ -47,12 +47,12 @@ FitnessCalc::FitnessCalc(QWidget *parent) :
         else
             ui->comboBoxActivity->setCurrentIndex(0);
 
-        ui->labelBMI->setText(QString::number(profile.getBMI(),'g',5));
+        ui->labelBMI->setText(QString::number(profile.getBMI(),'g',3));
         ui->labelConformity->setText(profile.getConclusion());
-        QString res = QString::number(profile.getOptimalWeightMin(),'g',5) + " - " + QString::number(profile.getOptimalWeightMax(),'g',5);
+        QString res = QString::number(profile.getOptimalWeightMin(),'g',3) + " - " + QString::number(profile.getOptimalWeightMax(),'g',4);
         ui->labelOptimalWeight->setText(res);
-        ui->labelCalorieNorm->setText(QString::number(profile.getBMR(),'g',5));
-        ui->labelWaterNorm->setText(QString::number(profile.getWater(),'g',5));
+        ui->labelCalorieNorm->setText(QString::number(profile.getBMR(),'g',4));
+        ui->labelWaterNorm->setText(QString::number(profile.getWater(),'g',3));
     }
 
     //Click on menu
@@ -132,11 +132,11 @@ void FitnessCalc::setProfile()
         file.flush();
         file.close();
 
-        ui->labelBMI->setText(QString::number(profile.getBMI(),'g',5));
+        ui->labelBMI->setText(QString::number(profile.getBMI(),'g',3));
         ui->labelConformity->setText(profile.getConclusion());
-        QString res = QString::number(profile.getOptimalWeightMin(),'g',5) + " - " + QString::number(profile.getOptimalWeightMax(),'g',5);
+        QString res = QString::number(profile.getOptimalWeightMin(),'g',3) + " - " + QString::number(profile.getOptimalWeightMax(),'g',4);
         ui->labelOptimalWeight->setText(res);
-        ui->labelCalorieNorm->setText(QString::number(profile.getBMR(),'g',5));
-        ui->labelWaterNorm->setText(QString::number(profile.getWater(),'g',5));
+        ui->labelCalorieNorm->setText(QString::number(profile.getBMR(),'g',4));
+        ui->labelWaterNorm->setText(QString::number(profile.getWater(),'g',3));
     }
 }
