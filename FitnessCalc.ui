@@ -35,6 +35,125 @@
     <property name="spacing">
      <number>0</number>
     </property>
+    <item row="1" column="0">
+     <widget class="QListWidget" name="listWidgetMenu">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>1</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(76, 175, 80);
+</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <property name="lineWidth">
+       <number>0</number>
+      </property>
+      <property name="autoScrollMargin">
+       <number>16</number>
+      </property>
+      <property name="tabKeyNavigation">
+       <bool>true</bool>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>32</width>
+        <height>32</height>
+       </size>
+      </property>
+      <property name="movement">
+       <enum>QListView::Static</enum>
+      </property>
+      <item>
+       <property name="text">
+        <string>Калькулятор</string>
+       </property>
+       <property name="font">
+        <font>
+         <family>Verdana</family>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignLeading|AlignVCenter</set>
+       </property>
+       <property name="icon">
+        <iconset resource="res/image.qrc">
+         <normaloff>:/menu/images/calculator.png</normaloff>:/menu/images/calculator.png</iconset>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Статистика</string>
+       </property>
+       <property name="font">
+        <font>
+         <family>Verdana</family>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignLeading|AlignVCenter</set>
+       </property>
+       <property name="icon">
+        <iconset resource="res/image.qrc">
+         <normaloff>:/menu/images/statistics.png</normaloff>:/menu/images/statistics.png</iconset>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Персональные нормы</string>
+       </property>
+       <property name="font">
+        <font>
+         <family>Verdana</family>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignLeading|AlignVCenter</set>
+       </property>
+       <property name="icon">
+        <iconset resource="res/image.qrc">
+         <normaloff>:/menu/images/norms.png</normaloff>:/menu/images/norms.png</iconset>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Справка</string>
+       </property>
+       <property name="font">
+        <font>
+         <family>Verdana</family>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="icon">
+        <iconset resource="res/image.qrc">
+         <normaloff>:/menu/images/help.png</normaloff>:/menu/images/help.png</iconset>
+       </property>
+      </item>
+     </widget>
+    </item>
     <item row="0" column="0" colspan="2">
      <layout class="QGridLayout" name="gridLayoutLogo">
       <property name="spacing">
@@ -220,125 +339,6 @@ background-color: rgb(56, 142, 60);</string>
       </item>
      </layout>
     </item>
-    <item row="1" column="0">
-     <widget class="QListWidget" name="listWidgetMenu">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>1</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>8</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(76, 175, 80);
-</string>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <property name="lineWidth">
-       <number>0</number>
-      </property>
-      <property name="autoScrollMargin">
-       <number>16</number>
-      </property>
-      <property name="tabKeyNavigation">
-       <bool>true</bool>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>32</width>
-        <height>32</height>
-       </size>
-      </property>
-      <property name="movement">
-       <enum>QListView::Static</enum>
-      </property>
-      <item>
-       <property name="text">
-        <string>Калькулятор</string>
-       </property>
-       <property name="font">
-        <font>
-         <family>Verdana</family>
-         <pointsize>11</pointsize>
-        </font>
-       </property>
-       <property name="textAlignment">
-        <set>AlignLeading|AlignVCenter</set>
-       </property>
-       <property name="icon">
-        <iconset resource="res/image.qrc">
-         <normaloff>:/menu/images/calculator.png</normaloff>:/menu/images/calculator.png</iconset>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Статистика</string>
-       </property>
-       <property name="font">
-        <font>
-         <family>Verdana</family>
-         <pointsize>11</pointsize>
-        </font>
-       </property>
-       <property name="textAlignment">
-        <set>AlignLeading|AlignVCenter</set>
-       </property>
-       <property name="icon">
-        <iconset resource="res/image.qrc">
-         <normaloff>:/menu/images/statistics.png</normaloff>:/menu/images/statistics.png</iconset>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Персональные нормы</string>
-       </property>
-       <property name="font">
-        <font>
-         <family>Verdana</family>
-         <pointsize>11</pointsize>
-        </font>
-       </property>
-       <property name="textAlignment">
-        <set>AlignLeading|AlignVCenter</set>
-       </property>
-       <property name="icon">
-        <iconset resource="res/image.qrc">
-         <normaloff>:/menu/images/norms.png</normaloff>:/menu/images/norms.png</iconset>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Справка</string>
-       </property>
-       <property name="font">
-        <font>
-         <family>Verdana</family>
-         <pointsize>11</pointsize>
-        </font>
-       </property>
-       <property name="icon">
-        <iconset resource="res/image.qrc">
-         <normaloff>:/menu/images/help.png</normaloff>:/menu/images/help.png</iconset>
-       </property>
-      </item>
-     </widget>
-    </item>
     <item row="1" column="1">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="sizePolicy">
@@ -369,7 +369,7 @@ background-color: rgb(76, 175, 80);
        <number>2</number>
       </property>
       <widget class="QWidget" name="pageCalculator">
-       <layout class="QGridLayout" name="gridLayout_3">
+       <layout class="QGridLayout" name="gridLayout_8">
         <item row="0" column="0">
          <layout class="QGridLayout" name="gridLayout_target">
           <property name="topMargin">
@@ -412,7 +412,10 @@ background-color: rgb(255, 255, 255);
 color: rgb(250, 150, 90);</string>
             </property>
             <property name="text">
-             <string>TextLabel</string>
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
            </widget>
           </item>
@@ -616,25 +619,223 @@ padding: .5em 2em;</string>
           </item>
          </layout>
         </item>
-        <item row="2" column="1">
-         <widget class="QScrollBar" name="verticalScrollBar">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-         </widget>
-        </item>
         <item row="2" column="0">
          <widget class="QTableView" name="tableView">
           <property name="font">
            <font>
-            <pointsize>10</pointsize>
+            <pointsize>9</pointsize>
            </font>
           </property>
           <property name="styleSheet">
-           <string notr="true">color: rgb(33, 33, 33);
-background-color: rgb(255, 255, 255);</string>
+           <string notr="true"/>
           </property>
+          <attribute name="horizontalHeaderCascadingSectionResizes">
+           <bool>false</bool>
+          </attribute>
+          <attribute name="horizontalHeaderStretchLastSection">
+           <bool>true</bool>
+          </attribute>
+          <attribute name="verticalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
+          <attribute name="verticalHeaderHighlightSections">
+           <bool>false</bool>
+          </attribute>
+          <attribute name="verticalHeaderStretchLastSection">
+           <bool>true</bool>
+          </attribute>
          </widget>
+        </item>
+        <item row="3" column="0">
+         <layout class="QGridLayout" name="gridLayoutConclusion">
+          <item row="0" column="1">
+           <widget class="QLabel" name="label_31">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Г</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="5">
+           <widget class="QLabel" name="label_38">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Ккал</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3">
+           <widget class="QLabel" name="label_35">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Ж</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QLabel" name="label_32">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Б</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="4">
+           <widget class="QLabel" name="label_36">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>У</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLabel" name="lblWeight">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" rowspan="2">
+           <widget class="QLabel" name="label_29">
+            <property name="font">
+             <font>
+              <pointsize>11</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>ИТОГ:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QLabel" name="lblProtein_Conclusion">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="3">
+           <widget class="QLabel" name="lblFat_Conclusion">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="4">
+           <widget class="QLabel" name="lblCarbohydrate_Conlusion">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="5">
+           <widget class="QLabel" name="lblCalorie_Conclusion">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </widget>
@@ -654,6 +855,7 @@ background-color: rgb(255, 255, 255);</string>
             <property name="font">
              <font>
               <family>Verdana</family>
+              <pointsize>9</pointsize>
              </font>
             </property>
             <property name="styleSheet">
@@ -703,6 +905,12 @@ background-color: rgb(255, 255, 255);</string>
           </item>
           <item row="2" column="3">
            <widget class="QLabel" name="lblFat">
+            <property name="font">
+             <font>
+              <family>Verdana</family>
+              <pointsize>9</pointsize>
+             </font>
+            </property>
             <property name="styleSheet">
              <string notr="true">color: rgb(250, 164, 58);</string>
             </property>
@@ -720,6 +928,12 @@ background-color: rgb(255, 255, 255);</string>
           </item>
           <item row="3" column="3">
            <widget class="QLabel" name="lblCarbohydrate">
+            <property name="font">
+             <font>
+              <family>Verdana</family>
+              <pointsize>9</pointsize>
+             </font>
+            </property>
             <property name="styleSheet">
              <string notr="true">color: rgb(178, 118, 178);</string>
             </property>
@@ -819,7 +1033,7 @@ background-color: rgb(255, 255, 255);</string>
              </font>
             </property>
             <property name="text">
-             <string>Норма каллорий:</string>
+             <string>Норма калорий:</string>
             </property>
            </widget>
           </item>
@@ -997,6 +1211,9 @@ background-color: rgb(255, 255, 255);</string>
             <property name="text">
              <string>Мужчина</string>
             </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
            </widget>
           </item>
           <item row="0" column="1">
@@ -1031,10 +1248,11 @@ background-color: rgb(255, 255, 255);</string>
              <font>
               <family>Verdana</family>
               <pointsize>9</pointsize>
+              <stylestrategy>PreferAntialias</stylestrategy>
              </font>
             </property>
             <property name="text">
-             <string>Желаемый вес (кг)</string>
+             <string>Цель калорий</string>
             </property>
            </widget>
           </item>
@@ -1065,9 +1283,12 @@ background-color: rgb(255, 255, 255);</string>
            </widget>
           </item>
           <item row="0" column="0" rowspan="6">
-           <widget class="QLabel" name="label_21">
+           <widget class="QLabel" name="labelImage">
             <property name="text">
-             <string>Image</string>
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
             </property>
            </widget>
           </item>
@@ -1090,16 +1311,6 @@ background-color: rgb(255, 255, 255);</string>
           </item>
           <item row="3" column="2" colspan="2">
            <widget class="QDoubleSpinBox" name="doubleSpinBoxWeight">
-            <property name="minimum">
-             <double>1.000000000000000</double>
-            </property>
-            <property name="maximum">
-             <double>200.000000000000000</double>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="2" colspan="2">
-           <widget class="QDoubleSpinBox" name="doubleSpinBoxDWeight">
             <property name="minimum">
              <double>1.000000000000000</double>
             </property>
@@ -1135,6 +1346,16 @@ background-color: rgb(255, 255, 255);</string>
               <string>Экстремально-высокая активность</string>
              </property>
             </item>
+           </widget>
+          </item>
+          <item row="4" column="2" colspan="2">
+           <widget class="QSpinBox" name="spinBoxTarget">
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <number>50000</number>
+            </property>
            </widget>
           </item>
          </layout>
@@ -1222,8 +1443,8 @@ padding: .5em 2em;</string>
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>563</width>
-             <height>325</height>
+             <width>69</width>
+             <height>69</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout">

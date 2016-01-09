@@ -13,4 +13,8 @@
     <qresource prefix="/logo">
         <file>images/logo.ico</file>
     </qresource>
+    <qresource prefix="/man&amp;woman">
+        <file>images/man.png</file>
+        <file>images/woman.png</file>
+    </qresource>
 </RCC>

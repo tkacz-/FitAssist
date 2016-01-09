@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -20,15 +20,18 @@ SOURCES += main.cpp\
         FitnessCalc.cpp \
     aboutDialog.cpp \
     profile.cpp \
-    piechart.cpp
+    piechart.cpp \
+    adddialog.cpp
 
 HEADERS  += FitnessCalc.h \
     aboutDialog.h \
     profile.h \
-    piechart.h
+    piechart.h \
+    adddialog.h
 
 FORMS    += FitnessCalc.ui \
-    aboutDialog.ui
+    aboutDialog.ui \
+    adddialog.ui
 
 RC_ICONS = res/images/logo.ico
 

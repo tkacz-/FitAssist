@@ -6,6 +6,8 @@
 #include <QMessageBox>
 #include <QFile>
 #include <QDir>
+#include <QtSql>
+#include <QTableView>
 
 #include "aboutDialog.h"
 #include "profile.h"
@@ -22,15 +24,22 @@ public:
     explicit FitnessCalc(QWidget *parent = 0);
     ~FitnessCalc();
 
-public slots:
-    void showAdvices();
+signals:
+    void sendPFC(double protein, double fat, double carbonhydrate);
 
+public slots:
+    void readProfile();
+    void showAdvices();
     void setProfile();
+
+    void getPFC(double protein, double fat, double carbonhydrate);
 
 private:
     Ui::FitnessCalc *ui;
     const QString fileName = "profile/profile.dat";
 
+    QSqlDatabase dbase = QSqlDatabase::addDatabase("QSQLITE");
+    QSqlTableModel model;
     Profile profile;
 };
 
