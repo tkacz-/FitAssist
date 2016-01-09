@@ -8,6 +8,45 @@ FitnessCalc::FitnessCalc(QWidget *parent) :
     ui->setupUi(this);
     ui->labelLogo->setPixmap(QIcon(":logo/images/logo.ico").pixmap(64,64));
 
+    dbase.setDatabaseName(QDir::currentPath() + "/base.sqlite");
+    dbase.open();
+
+    model.setTable("Продукты");
+    model.setEditStrategy(QSqlTableModel::OnFieldChange);
+    model.select();
+
+    double protein = 0, fat = 0, carbonhydrate = 0, calorie = 0;
+    for (int i = 0; i < model.rowCount(); i++) {
+        protein += model.record(i).value("Белки").toDouble();
+        fat += model.record(i).value("Жиры").toDouble();
+        carbonhydrate += model.record(i).value("Углеводы").toDouble();
+        calorie += model.record(i).value("Ккал").toDouble();
+    }
+
+    /*
+    QSqlRecord record = model.record();
+    record.setValue(0,QVariant(tr("ИТОГ")));
+    record.setValue(1,QVariant(protein));
+    record.setValue(2,QVariant(fat));
+    record.setValue(3,QVariant(carbohydrate));
+    record.setValue(4,QVariant(calorie));
+
+    model.insertRecord(model.rowCount(), record);
+    */
+
+    ui->tableView->setModel(&model);
+    ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+    ui->lblProtein_Conclusion->setText(QString::number(protein));
+    ui->lblFat_Conclusion->setText(QString::number(fat));
+    ui->lblCarbohydrate_Conlusion->setText(QString::number(carbonhydrate));
+    ui->lblCalorie_Conclusion->setText(QString::number(calorie));
+    ui->labelRecieved->setText(QString::number(calorie));
+
+    connect(this, &FitnessCalc::sendPFC, ui->widget, &PieChart::getPFC);
+    connect(ui->widget, &PieChart::sendPFC, this, &FitnessCalc::getPFC);
+    emit sendPFC(protein, fat, carbonhydrate);
+
     QPixmap pixmap(30,15);
     pixmap.fill(QColor("#5DA5DA"));
     ui->lblDrawProtein->setPixmap(pixmap);
@@ -18,6 +57,29 @@ FitnessCalc::FitnessCalc(QWidget *parent) :
     pixmap.fill(QColor("#B276B2"));
     ui->lblDrawCarbohydrate->setPixmap(pixmap);
 
+    readProfile();
+
+    //Click on menu
+    connect(ui->listWidgetMenu, &QListWidget::currentRowChanged,  ui->stackedWidget,  &QStackedWidget::setCurrentIndex);
+
+    //Click on advice button
+    connect(ui->commandLinkButton, &QCommandLinkButton::clicked, this, &FitnessCalc::showAdvices);
+
+    //Click on about button
+    aboutDialog* about = new aboutDialog();
+    connect(ui->commandLinkButton_2, &QCommandLinkButton::clicked, about, &QDialog::show);
+
+    //Click on apply button
+    connect(ui->pushButtonApply, &QPushButton::clicked, this, &FitnessCalc::setProfile);
+}
+
+FitnessCalc::~FitnessCalc()
+{
+    delete ui;
+}
+
+void FitnessCalc::readProfile()
+{
     QFile file(fileName);
     if (file.open(QIODevice::ReadOnly))
     {
@@ -28,10 +90,14 @@ FitnessCalc::FitnessCalc(QWidget *parent) :
 
         file.close();
 
-        if (profile.getGender() == "male")
+        if (profile.getGender() == "male") {
             ui->radioButtonMale->setChecked(true);
-        else
+            ui->labelImage->setPixmap(QPixmap(":man&woman/images/man.png"));
+        }
+        else {
             ui->radioButtonFemale->setChecked(true);
+            ui->labelImage->setPixmap(QPixmap(":man&woman/images/woman.png"));
+        }
         ui->doubleSpinBoxWeight->setValue(profile.getWeigth());
         ui->spinBoxHeight->setValue(profile.getHeigth());
         ui->spinBoxAge->setValue(profile.getAge());
@@ -54,24 +120,13 @@ FitnessCalc::FitnessCalc(QWidget *parent) :
         ui->labelCalorieNorm->setText(QString::number(profile.getBMR(),'g',4));
         ui->labelWaterNorm->setText(QString::number(profile.getWater(),'g',3));
     }
-
-    //Click on menu
-    connect(ui->listWidgetMenu, &QListWidget::currentRowChanged,  ui->stackedWidget,  &QStackedWidget::setCurrentIndex);
-
-    //Click on advice button
-    connect(ui->commandLinkButton, &QCommandLinkButton::clicked, this, &FitnessCalc::showAdvices);
-
-    //Click on about button
-    aboutDialog* about = new aboutDialog();
-    connect(ui->commandLinkButton_2, &QCommandLinkButton::clicked, about, &QDialog::show);
-
-    //Click on apply button
-    connect(ui->pushButtonApply, &QPushButton::clicked, this, &FitnessCalc::setProfile);
 }
 
-FitnessCalc::~FitnessCalc()
+void FitnessCalc::getPFC(double protein, double fat, double carbonhydrate)
 {
-    delete ui;
+    ui->lblProtein->setText(QString::number(protein, 'g', 3) + " %");
+    ui->lblFat->setText(QString::number(fat, 'g', 3) + " %");
+    ui->lblCarbohydrate->setText(QString::number(carbonhydrate, 'g', 3) + " %");
 }
 
 void FitnessCalc::showAdvices()

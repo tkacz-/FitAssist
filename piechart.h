@@ -17,15 +17,15 @@ protected:
     void resizeEvent(QResizeEvent *);
 
 signals:
-    void sendPFC(int protein, int fat, int carbonhydrate);
+    void sendPFC(double protein, double fat, double carbonhydrate);
 
 public slots:
-    void getPFC(int protein, int fat, int carbonhydrate);
+    void getPFC(double protein, double fat, double carbonhydrate);
 
 private:
-    int protein;
-    int fat;
-    int carbonhydrate;
+    double protein;
+    double fat;
+    double carbonhydrate;
 };
 
 #endif // PIECHART_H
