@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>EditListDialog</class>
+ <widget class="QDialog" name="EditListDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>540</width>
+    <height>312</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>Verdana</family>
+    <pointsize>9</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Изменить список продуктов</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0" rowspan="2" colspan="2">
+    <widget class="QLabel" name="label">
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>9</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(120, 120, 120);</string>
+     </property>
+     <property name="text">
+      <string>* изминения вступают в силу сразу</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0" colspan="2">
+    <widget class="QTableView" name="tableView"/>
+   </item>
+   <item row="2" column="0" colspan="2">
+    <widget class="QComboBox" name="comboBoxCategorie">
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <item>
+      <property name="text">
+       <string>Алкогольные напитки</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Вода, соки и безалкогольные напитки</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Грибы</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Жиры растительные и животные</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Кондитерские изделия</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Крупы, злаки и зернобобовые</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Молоко и молочные продукты</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Мука, крахмал и макаронные изделия</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Мясо, птица и мясные продукты</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Овощи и зелень</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Орехи и семена</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Рыба и морепродукты</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Специи, приправы и соусы</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Фрукты и ягоды</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Хлеб и хлебобулочные изделия</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Яйца и продукты из них</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QPushButton" name="pushButtonDel">
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>9</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+	color: rgb(255, 255, 255);
+	background-color: rgb(76, 175, 80);
+	border-radius: 3px;
+	padding: .5em 2em;
+}
+
+QPushButton::pressed {
+	background-color: rgb(89, 204, 93);
+}
+
+QPushButton::hover {
+	background-color: rgb(89, 204, 93);
+}</string>
+     </property>
+     <property name="text">
+      <string>Удалить</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="QPushButton" name="pushButtonClean">
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>9</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+	color: rgb(255, 255, 255);
+	background-color: rgb(76, 175, 80);
+	border-radius: 3px;
+	padding: .5em 2em;
+}
+
+QPushButton::pressed {
+	background-color: rgb(89, 204, 93);
+}
+
+QPushButton::hover {
+	background-color: rgb(89, 204, 93);
+}</string>
+     </property>
+     <property name="text">
+      <string>Очистить</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>comboBoxCategorie</tabstop>
+  <tabstop>tableView</tabstop>
+  <tabstop>pushButtonDel</tabstop>
+  <tabstop>pushButtonClean</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

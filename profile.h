@@ -6,42 +6,54 @@
 
 class Profile
 {
-private:
-    float weight;
-    short height;
-    short age;
-    QString gender;
-    float activity;
-
-    double bmi;
-    QString conclusion;
-    double minWeight;
-    double maxWeight;
-    double bmr;
-    double water;
-
-private:
-    //Calculate BMI
-    double calculateBMI();
-
-    //Conclision of BMI
-    QString conclusionBMI(double res);
-
-    //Calculate optimal weight
-    void calculateOptimalWeight(double &min, double &max);
-
-    //Calculate optimal calorie
-    double calculateBMR();
-
-    //Calculate norm of water
-    double calculateWater();
-
 public:
     Profile();
+    Profile(float w, short h, short age, QString g, float a, int calorie);
 
-    Profile(float w, short h, short age, QString g, float a);
+    ~Profile();
 
-    //Calculate all profile norms
+    //ostream, << overloading
+    friend QDataStream &operator<<(QDataStream &out, const Profile &p)
+    {
+        out << p.getWeigth() << p.getHeigth() << p.getAge() << p.getGender()
+            << p.getActivity() << p.getCalorie() << p.getBMI()
+            << p.getConclusion() << p.getOptimalWeightMin() << p.getOptimalWeightMax()
+            << p.getBMR() << p.getWater();
+        return out;
+    }
+
+    //istream, >> overloading
+    friend QDataStream &operator>>(QDataStream &in, Profile &p)
+    {
+        float weight;
+        short height;
+        short age;
+        QString gender;
+        float activity;
+        int calorie;
+
+        double bmi;
+        QString conclusion;
+        double minWeight;
+        double maxWeight;
+        double bmr;
+        double water;
+
+        in >> weight >> height >> age >> gender >> activity >> calorie >> bmi
+                >> conclusion >> minWeight >> maxWeight >> bmr >> water;
+
+        p = Profile(weight,height,age,gender,activity, calorie);
+        p.setBMI(bmi);
+        p.setConclusion(conclusion);
+        p.setOptimalWeightMin(minWeight);
+        p.setOptimalWeightMax(maxWeight);
+        p.setBMR(bmr);
+        p.setWater(water);
+
+        return in;
+    }
+
+    //Calculate the all profile norms
     void calculateNorms();
 
     void setWeigth(float w);
@@ -58,6 +70,9 @@ public:
 
     void setActivity(float a);
     float getActivity() const;
+
+    void setCalorie(int calorie);
+    int getCalorie() const;
 
     void setBMI(double temp);
     double getBMI() const;
@@ -76,25 +91,45 @@ public:
 
     void setWater(double water);
     double getWater() const;
-};
 
-//ostream, << overloading
-inline QDataStream &operator<<(QDataStream &out, const Profile &p)
-{
-    out << p.getWeigth() << p.getHeigth() << p.getAge() << p.getGender()
-        << p.getActivity() << p.getBMI() << p.getConclusion() << p.getOptimalWeightMin()
-        << p.getOptimalWeightMax() << p.getBMR() << p.getWater();
-    return out;
-}
+private:
 
-//istream, >> overloading
-inline QDataStream &operator>>(QDataStream &in, Profile &p)
-{
+    /**
+     * @brief Calculating BMI @see https://en.wikipedia.org/wiki/Body_mass_index
+     * @return BMI number
+     */
+    double calculateBMI();
+
+    /**
+     * @brief conclusionBMI
+     * @param res is the BMI number
+     * @return conlclusion
+     */
+    QString conclusionBMI(double res);
+
+    /**
+     * @brief calculateOptimalWeight
+     * @param min is the minimum weight
+     * @param max is the maximum weight
+     */
+    void calculateOptimalWeight(double &min, double &max);
+
+    /**
+     * @brief calculateBMR @https://en.wikipedia.org/wiki/Basal_metabolic_rate
+     * @return BMR number
+     */
+    double calculateBMR();
+
+    //Calculate norm of water
+    double calculateWater();
+
+private:
     float weight;
     short height;
     short age;
     QString gender;
     float activity;
+    int calorie;
 
     double bmi;
     QString conclusion;
@@ -102,19 +137,6 @@ inline QDataStream &operator>>(QDataStream &in, Profile &p)
     double maxWeight;
     double bmr;
     double water;
-
-    in >> weight >> height >> age >> gender >> activity >> bmi >> conclusion
-            >> minWeight >> maxWeight >> bmr >> water;
-
-    p = Profile(weight,height,age,gender,activity);
-    p.setBMI(bmi);
-    p.setConclusion(conclusion);
-    p.setOptimalWeightMin(minWeight);
-    p.setOptimalWeightMax(maxWeight);
-    p.setBMR(bmr);
-    p.setWater(water);
-
-    return in;
-}
+};
 
 #endif // PROFILE_H

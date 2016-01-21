@@ -6,8 +6,6 @@ aboutDialog::aboutDialog(QWidget *parent) :
     ui(new Ui::aboutDialog)
 {
     ui->setupUi(this);
-
-    ui->label->setPixmap(QIcon(":logo/images/logo.ico").pixmap(64,64));
 }
 
 aboutDialog::~aboutDialog()

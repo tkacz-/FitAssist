@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>425</width>
-    <height>300</height>
+    <width>395</width>
+    <height>316</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -27,7 +27,7 @@
           </font>
          </property>
          <property name="text">
-          <string>© 2015 Andrei Tkachenko (@tkacz-)</string>
+          <string notr="true">© 2015 Andrei Tkachenko (@tkacz-)</string>
          </property>
         </widget>
        </item>
@@ -40,7 +40,7 @@
           </font>
          </property>
          <property name="text">
-          <string>Version 1.0.0.0</string>
+          <string notr="true">Version 1.0.0.0</string>
          </property>
         </widget>
        </item>
@@ -55,7 +55,7 @@
           </font>
          </property>
          <property name="text">
-          <string>FitnessCalc</string>
+          <string notr="true">FitnessCalc</string>
          </property>
          <property name="textFormat">
           <enum>Qt::AutoText</enum>
@@ -66,6 +66,9 @@
         <widget class="QLabel" name="label">
          <property name="text">
           <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="res/image.qrc">:/logo/images/logo.png</pixmap>
          </property>
          <property name="scaledContents">
           <bool>false</bool>
@@ -162,7 +165,8 @@
         </font>
        </property>
        <property name="text">
-        <string>   ✓  Возможность добавлять собственные продукты и блюда;</string>
+        <string>   ✓  Возможность добавлять собственные продукты и
+       устанавливать дневную цель калорий;</string>
        </property>
       </widget>
      </item>
@@ -198,6 +202,9 @@
          <property name="text">
           <string>Поддержка:</string>
          </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
         </widget>
        </item>
        <item row="1" column="1">
@@ -213,10 +220,13 @@
           <string notr="true">color: rgb(0, 0, 255);</string>
          </property>
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;a.kiriy@ya.ru&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;mailto:a.kiriy@ya.ru&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;a.kiriy@ya.ru&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="openExternalLinks">
+          <bool>true</bool>
          </property>
          <property name="textInteractionFlags">
-          <set>Qt::TextSelectableByMouse</set>
+          <set>Qt::TextBrowserInteraction</set>
          </property>
         </widget>
        </item>
@@ -229,7 +239,7 @@
           </font>
          </property>
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://tkaczenko.wordpress.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Веб-сайт&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://tkaczenko.wordpress.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;tkaczenko.wordpress.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -248,6 +258,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="res/image.qrc"/>
+ </resources>
  <connections/>
 </ui>

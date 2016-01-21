@@ -8,13 +8,13 @@
 class PieChart : public QWidget
 {
     Q_OBJECT
+
 public:
     explicit PieChart(QWidget *parent = 0);
 
-    void paintEvent(QPaintEvent *);
-
 protected:
     void resizeEvent(QResizeEvent *);
+    void paintEvent(QPaintEvent *);
 
 signals:
     void sendPFC(double protein, double fat, double carbonhydrate);
