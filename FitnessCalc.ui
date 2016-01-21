@@ -249,7 +249,7 @@ background-color: rgb(56, 142, 60);</string>
 background-color: rgb(56, 142, 60);</string>
         </property>
         <property name="text">
-         <string> Версия 0.0.0.1</string>
+         <string> Версия 0.0.0.12</string>
         </property>
        </widget>
       </item>
@@ -283,10 +283,13 @@ background-color: rgb(56, 142, 60);</string>
 background-color: rgb(56, 142, 60);</string>
         </property>
         <property name="text">
-         <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://tkaczenko.wordpress.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#c8e6c9;&quot;&gt;tkaczenko.wordpress.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://tkaczenko.wordpress.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#c8e6c9;&quot;&gt;tkaczenko.wordpress.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+        <property name="openExternalLinks">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -1652,8 +1655,8 @@ QPushButton::hover {
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>687</width>
-             <height>370</height>
+             <width>69</width>
+             <height>69</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout">
