@@ -1,7 +1,5 @@
 #include "profile.h"
 
-#include <QDebug>
-
 Profile::Profile()
 {
 
@@ -58,7 +56,6 @@ QString Profile::conclusionBMI(double res)
                                   "Ожирение третьей степени" };
     QString temp;
     res = std::floor(res * 100 + 0.5) / 100;
-    qDebug() << res;
     if (res < 16)
         temp = Conclusion[0];
     if (res >= 16 && res < 18.5)

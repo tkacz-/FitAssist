@@ -244,9 +244,8 @@ void FitnessCalc::writeProfile()
     out.setVersion(QDataStream::Qt_5_5);
 
     if(file.open(QIODevice::WriteOnly))
-        out << profile;
+        out << *profile;
 
-    file.flush();
     file.close();
 }
 
