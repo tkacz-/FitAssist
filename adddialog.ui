@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>398</width>
-    <height>244</height>
+    <width>540</width>
+    <height>312</height>
    </rect>
   </property>
   <property name="font">
@@ -21,145 +21,6 @@
    <string>Добавить</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="1">
-    <widget class="QComboBox" name="comboBox">
-     <item>
-      <property name="text">
-       <string>мой рацион</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>список продуктов</string>
-      </property>
-     </item>
-    </widget>
-   </item>
-   <item row="0" column="0">
-    <widget class="QLabel" name="label">
-     <property name="text">
-      <string>Добавить в:</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="0" colspan="2">
-    <widget class="QStackedWidget" name="stackedWidget">
-     <property name="currentIndex">
-      <number>0</number>
-     </property>
-     <widget class="QWidget" name="pageMyDiet">
-      <layout class="QGridLayout" name="gridLayout_3">
-       <item row="0" column="0">
-        <layout class="QGridLayout" name="gridLayout_2">
-         <item row="0" column="0">
-          <widget class="QLabel" name="label_2">
-           <property name="text">
-            <string>Поиск</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QLineEdit" name="lineEditSearch"/>
-         </item>
-         <item row="3" column="1">
-          <widget class="QSpinBox" name="spinBoxWeight"/>
-         </item>
-         <item row="3" column="0">
-          <widget class="QLabel" name="label_3">
-           <property name="text">
-            <string>Вес (г)</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="0" colspan="2">
-          <widget class="QTableView" name="tableView"/>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="pageList">
-      <layout class="QGridLayout" name="gridLayout_5">
-       <item row="0" column="0">
-        <layout class="QGridLayout" name="gridLayout_4">
-         <item row="1" column="0">
-          <widget class="QLabel" name="label_4">
-           <property name="text">
-            <string>Наименование</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="0">
-          <widget class="QLabel" name="label_8">
-           <property name="text">
-            <string>Ккал</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
-          <widget class="QLineEdit" name="lineEditName"/>
-         </item>
-         <item row="4" column="0">
-          <widget class="QLabel" name="label_7">
-           <property name="text">
-            <string>Углеводы (г)</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="1">
-          <widget class="QDoubleSpinBox" name="doubleSpinBoxFat"/>
-         </item>
-         <item row="2" column="1">
-          <widget class="QDoubleSpinBox" name="doubleSpinBoxProtein"/>
-         </item>
-         <item row="3" column="0">
-          <widget class="QLabel" name="label_6">
-           <property name="text">
-            <string>Жиры (г)</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="0">
-          <widget class="QLabel" name="label_5">
-           <property name="text">
-            <string>Белки (г)</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="1">
-          <widget class="QDoubleSpinBox" name="doubleSpinBoxCarbonhydrate"/>
-         </item>
-         <item row="5" column="1">
-          <widget class="QDoubleSpinBox" name="doubleSpinBoxCalorie"/>
-         </item>
-         <item row="0" column="0" colspan="2">
-          <widget class="QLabel" name="label_9">
-           <property name="font">
-            <font>
-             <family>Verdana</family>
-             <pointsize>9</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: rgb(120, 120, 120);</string>
-           </property>
-           <property name="text">
-            <string>* содержание в 100 грамм продукта</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </widget>
-    </widget>
-   </item>
    <item row="2" column="0" colspan="2">
     <layout class="QHBoxLayout" name="buttonLayout">
      <item>
@@ -184,10 +45,20 @@
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(76, 175, 80);
-border-radius: 3px;
-padding: .5em 2em;</string>
+        <string notr="true">QPushButton {
+	color: rgb(255, 255, 255);
+	background-color: rgb(76, 175, 80);
+	border-radius: 3px;
+	padding: .5em 2em;
+}
+
+QPushButton::pressed {
+	background-color: rgb(89, 204, 93);
+}
+
+QPushButton::hover {
+	background-color: rgb(89, 204, 93);
+}</string>
        </property>
        <property name="text">
         <string>Добавить</string>
@@ -203,10 +74,20 @@ padding: .5em 2em;</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(76, 175, 80);
-border-radius: 3px;
-padding: .5em 2em;</string>
+        <string notr="true">QPushButton {
+	color: rgb(255, 255, 255);
+	background-color: rgb(76, 175, 80);
+	border-radius: 3px;
+	padding: .5em 2em;
+}
+
+QPushButton::pressed {
+	background-color: rgb(89, 204, 93);
+}
+
+QPushButton::hover {
+	background-color: rgb(89, 204, 93);
+}</string>
        </property>
        <property name="text">
         <string>Отмена</string>
@@ -215,8 +96,515 @@ padding: .5em 2em;</string>
      </item>
     </layout>
    </item>
+   <item row="0" column="1">
+    <widget class="QComboBox" name="comboBox">
+     <item>
+      <property name="text">
+       <string>мой рацион</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>мой список продуктов</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>Добавить в:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="2">
+    <widget class="QStackedWidget" name="stackedWidget">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="pageMyDiet">
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="0" column="0">
+        <layout class="QGridLayout" name="gridLayout_2">
+         <item row="5" column="0" colspan="5">
+          <widget class="QTableView" name="tableView"/>
+         </item>
+         <item row="2" column="4">
+          <widget class="QPushButton" name="pushButtonSearch">
+           <property name="font">
+            <font>
+             <family>Verdana</family>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+	color: rgb(255, 255, 255);
+	background-color: rgb(76, 175, 80);
+	border-radius: 3px;
+	padding: .5em 2em;
+}
+
+QPushButton::pressed {
+	background-color: rgb(89, 204, 93);
+}
+
+QPushButton::hover {
+	background-color: rgb(89, 204, 93);
+}</string>
+           </property>
+           <property name="text">
+            <string>Искать</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0" colspan="5">
+          <widget class="QComboBox" name="comboBoxMyCategorie">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <item>
+            <property name="text">
+             <string>Алкогольные напитки</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Вода, соки и безалкогольные напитки</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Грибы</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Жиры растительные и животные</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Кондитерские изделия</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Крупы, злаки и зернобобовые</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Молоко и молочные продукты</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Мука, крахмал и макаронные изделия</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Мясо, птица и мясные продукты</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Овощи и зелень</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Орехи и семена</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Рыба и морепродукты</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Специи, приправы и соусы</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Фрукты и ягоды</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Хлеб и хлебобулочные изделия</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Яйца и продукты из них</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>Поиск</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1" colspan="3">
+          <widget class="QLineEdit" name="lineEditSearch">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1" colspan="4">
+          <widget class="QSpinBox" name="spinBoxWeight">
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>5000</number>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0">
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>Вес (г)</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_11">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>в</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1" colspan="2">
+          <widget class="QRadioButton" name="radioButtonBase">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>Базе</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3" colspan="2">
+          <widget class="QRadioButton" name="radioButtonMyProducts">
+           <property name="text">
+            <string>Моем списке продуктов</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="pageList">
+      <layout class="QGridLayout" name="gridLayout_5">
+       <item row="0" column="0">
+        <layout class="QGridLayout" name="gridLayout_4">
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_10">
+           <property name="text">
+            <string>Категория</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0">
+          <widget class="QLabel" name="label_7">
+           <property name="text">
+            <string>Углеводы (г)</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="0">
+          <widget class="QLabel" name="label_8">
+           <property name="text">
+            <string>Ккал</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_4">
+           <property name="text">
+            <string>Наименование</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="lineEditName"/>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="label_6">
+           <property name="text">
+            <string>Жиры (г)</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QDoubleSpinBox" name="doubleSpinBoxProtein">
+           <property name="maximum">
+            <double>1000.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QDoubleSpinBox" name="doubleSpinBoxFat">
+           <property name="maximum">
+            <double>1000.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_5">
+           <property name="text">
+            <string>Белки (г)</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1">
+          <widget class="QDoubleSpinBox" name="doubleSpinBoxCarbonhydrate">
+           <property name="maximum">
+            <double>1000.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1">
+          <widget class="QSpinBox" name="spinBoxCalorie">
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>10000</number>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QComboBox" name="comboBoxCategorie">
+           <item>
+            <property name="text">
+             <string>Алкогольные напитки</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Вода, соки и безалкогольные напитки</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Грибы</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Жиры растительные и животные</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Кондитерские изделия</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Крупы, злаки и зернобобовые</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Молоко и молочные продукты</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Мука, крахмал и макаронные изделия</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Мясо, птица и мясные продукты</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Овощи и зелень</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Орехи и семена</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Рыба и морепродукты</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Специи, приправы и соусы</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Фрукты и ягоды</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Хлеб и хлебобулочные изделия</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Яйца и продукты из них</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="0" column="0" rowspan="2" colspan="2">
+          <widget class="QLabel" name="label_9">
+           <property name="font">
+            <font>
+             <family>Verdana</family>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(120, 120, 120);</string>
+           </property>
+           <property name="text">
+            <string>* содержание в 100 грамм продукта</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="0" colspan="2">
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>comboBox</tabstop>
+  <tabstop>pushButtonAdd</tabstop>
+  <tabstop>pushButtonCancel</tabstop>
+  <tabstop>comboBoxMyCategorie</tabstop>
+  <tabstop>radioButtonBase</tabstop>
+  <tabstop>radioButtonMyProducts</tabstop>
+  <tabstop>lineEditSearch</tabstop>
+  <tabstop>pushButtonSearch</tabstop>
+  <tabstop>tableView</tabstop>
+  <tabstop>spinBoxWeight</tabstop>
+  <tabstop>lineEditName</tabstop>
+  <tabstop>comboBoxCategorie</tabstop>
+  <tabstop>doubleSpinBoxProtein</tabstop>
+  <tabstop>doubleSpinBoxFat</tabstop>
+  <tabstop>doubleSpinBoxCarbonhydrate</tabstop>
+  <tabstop>spinBoxCalorie</tabstop>
+ </tabstops>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButtonCancel</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>addDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>337</x>
+     <y>219</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>198</x>
+     <y>121</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBox</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>stackedWidget</receiver>
+   <slot>setCurrentIndex(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>295</x>
+     <y>18</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>198</x>
+     <y>116</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonAdd</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>addDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>223</x>
+     <y>219</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>198</x>
+     <y>121</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

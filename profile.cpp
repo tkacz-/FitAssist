@@ -1,17 +1,44 @@
 #include "profile.h"
 
+#include <QDebug>
+
 Profile::Profile()
 {
 
 }
 
-Profile::Profile(float w, short h, short age, QString g, float a)
+Profile::Profile(float w, short h, short age, QString g, float a, int calorie)
 {
     setWeigth(w);
     setHeigth(h);
     setAge(age);
     setGender(g);
     setActivity(a);
+    setCalorie(calorie);
+}
+
+Profile::~Profile()
+{
+
+}
+
+void Profile::calculateNorms()
+{
+    double bmi = Profile::calculateBMI();
+    Profile::setBMI(bmi);
+    QString conclusion = Profile::conclusionBMI(bmi);
+    Profile::setConclusion(conclusion);
+
+    double minw, maxw;
+    Profile::calculateOptimalWeight(minw, maxw);
+    Profile::setOptimalWeightMin(minw);
+    Profile::setOptimalWeightMax(maxw);
+
+    double calorie = Profile::calculateBMR();
+    Profile::setBMR(calorie);
+
+    double water = Profile::calculateWater();
+    Profile::setWater(water);
 }
 
 double Profile::calculateBMI()
@@ -30,6 +57,8 @@ QString Profile::conclusionBMI(double res)
                                   "Ожирение второй степени",
                                   "Ожирение третьей степени" };
     QString temp;
+    res = std::floor(res * 100 + 0.5) / 100;
+    qDebug() << res;
     if (res < 16)
         temp = Conclusion[0];
     if (res >= 16 && res < 18.5)
@@ -72,25 +101,6 @@ double Profile::calculateWater()
     if (gender == "female")
         res = 31 * weight;
     return res / 1000;
-}
-
-void Profile::calculateNorms()
-{
-    double bmi = Profile::calculateBMI();
-    Profile::setBMI(bmi);
-    QString conclusion = Profile::conclusionBMI(bmi);
-    Profile::setConclusion(conclusion);
-
-    double minw, maxw;
-    Profile::calculateOptimalWeight(minw, maxw);
-    Profile::setOptimalWeightMin(minw);
-    Profile::setOptimalWeightMax(maxw);
-
-    double calorie = Profile::calculateBMR();
-    Profile::setBMR(calorie);
-
-    double water = Profile::calculateWater();
-    Profile::setWater(water);
 }
 
 void Profile::setWeigth(float w)
@@ -141,6 +151,16 @@ void Profile::setActivity(float w)
 float Profile::getActivity() const
 {
     return activity;
+}
+
+void Profile::setCalorie(int calorie)
+{
+    this->calorie = calorie;
+}
+
+int Profile::getCalorie() const
+{
+    return calorie;
 }
 
 void Profile::setBMI(double temp)

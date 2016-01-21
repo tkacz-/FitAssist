@@ -12,6 +12,7 @@
     </qresource>
     <qresource prefix="/logo">
         <file>images/logo.ico</file>
+        <file>images/logo.png</file>
     </qresource>
     <qresource prefix="/man&amp;woman">
         <file>images/man.png</file>
