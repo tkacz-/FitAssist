@@ -27,7 +27,8 @@ public slots:
 private:
     Ui::EditListDialog *ui;
 
-    QSqlTableModel *model = nullptr;
+    QSqlDatabase *dbase;
+    QSqlTableModel *model;
 };
 
 #endif // EDITLISTDIALOG_H

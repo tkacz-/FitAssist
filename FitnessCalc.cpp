@@ -7,6 +7,12 @@ FitnessCalc::FitnessCalc(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    ui->comboBoxActivity->setItemData(0, tr("Сидячий образ жизни, очень мало или отсутствие спортивных занятий"), Qt::ToolTipRole);
+    ui->comboBoxActivity->setItemData(1, tr("Немного дневной активности + легкие упражнения 1-3 раза в неделю"), Qt::ToolTipRole);
+    ui->comboBoxActivity->setItemData(2, tr("Тренировки 3-5 раз в неделю"), Qt::ToolTipRole);
+    ui->comboBoxActivity->setItemData(3, tr("Активный образ жизни и тяжелые тренировки 6-7 раз в неделю"), Qt::ToolTipRole);
+    ui->comboBoxActivity->setItemData(4, tr("Спортивный образ жизни, физический труд, ежедневные тренировки"), Qt::ToolTipRole);
+
     if (!readProfile())
         ui->labelImage->setPixmap(QPixmap(":man&woman/images/man.png"));
 
@@ -75,19 +81,19 @@ void FitnessCalc::setProfile()
         float activity;
         switch (ui->comboBoxActivity->currentIndex()) {
         case 0:
-            activity = 1.1;
-            break;
-        case 1:
             activity = 1.2;
             break;
+        case 1:
+            activity = 1.375;
+            break;
         case 2:
-            activity = 1.3;
+            activity = 1.55;
             break;
         case 3:
-            activity = 1.4;
+            activity = 1.725;
             break;
         case 4:
-            activity = 1.5;
+            activity = 1.9;
             break;
         }
         QString gender;
@@ -215,16 +221,16 @@ bool FitnessCalc::readProfile()
         ui->doubleSpinBoxWeight->setValue(profile->getWeigth());
         ui->spinBoxHeight->setValue(profile->getHeigth());
         ui->spinBoxAge->setValue(profile->getAge());
-        float activity = profile->getActivity() * 10;
+        float activity = profile->getActivity() * 1000;
         ui->spinBoxTarget->setValue(profile->getCalorie());
 
-        if (activity == 11)
+        if (activity == 1200)
             ui->comboBoxActivity->setCurrentIndex(0);
-        else if (activity == 12)
+        else if (activity == 1375)
             ui->comboBoxActivity->setCurrentIndex(1);
-        else if (activity == 13)
+        else if (activity == 1550)
             ui->comboBoxActivity->setCurrentIndex(2);
-        else if (activity == 14)
+        else if (activity == 1725)
             ui->comboBoxActivity->setCurrentIndex(3);
         else
             ui->comboBoxActivity->setCurrentIndex(4);
