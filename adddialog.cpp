@@ -36,8 +36,6 @@ void addDialog::search()
     if (!QDir("base").exists())
         QDir().mkdir("base");
 
-
-
     if (ui->radioButtonBase->isChecked()) {
         QSqlDatabase dbase = QSqlDatabase::addDatabase("QSQLITE");
         dbase.setDatabaseName(QDir::currentPath() + "/base/base.sqlite");

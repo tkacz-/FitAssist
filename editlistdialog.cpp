@@ -6,6 +6,17 @@ EditListDialog::EditListDialog(QWidget *parent) :
     ui(new Ui::EditListDialog)
 {
     ui->setupUi(this);
+
+    dbase = new QSqlDatabase(QSqlDatabase::addDatabase("QSQLITE"));
+    dbase->setDatabaseName(QDir::currentPath() + "/base/MyProducts.sqlite");
+    dbase->open();
+
+    model = new QSqlTableModel;
+    model->setEditStrategy(QSqlTableModel::OnFieldChange);
+
+    ui->tableView->setModel(model);
+    ui->tableView->setEditTriggers(QAbstractItemView::DoubleClicked);
+
     connect(ui->comboBoxCategorie, SIGNAL(currentIndexChanged(int)), this, SLOT(getCategorie(int)));
     connect(ui->pushButtonDel, &QAbstractButton::clicked, this, &EditListDialog::deleteRow);
     connect(ui->pushButtonClean, &QAbstractButton::clicked, this, &EditListDialog::removeAllRows);
@@ -14,6 +25,8 @@ EditListDialog::EditListDialog(QWidget *parent) :
 EditListDialog::~EditListDialog()
 {
     delete ui;
+
+    delete dbase;
     delete model;
 }
 
@@ -36,32 +49,8 @@ void EditListDialog::getCategorie(int index)
                                   "Хлеб_и_хлебобулочные_изделия",
                                   "Яйца_и_продукты_из_них" };
 
-    QSqlDatabase *dbase = new QSqlDatabase(QSqlDatabase::addDatabase("QSQLITE"));
-    dbase->setDatabaseName(QDir::currentPath() + "/base/MyProducts.sqlite");
-    dbase->open();
-
-    QSqlQuery query;
-    QString str = "CREATE TABLE " + categories[index] + " ("
-                  "Наименование text, "
-                  "Белки double, "
-                  "Жиры double, "
-                  "Углеводы double, "
-                  "Ккал integer"
-                  ");";
-    query.exec(str);
-
-    delete model;
-    model = nullptr;
-
-    model = new QSqlTableModel;
     model->setTable(categories[index]);
-    model->setEditStrategy(QSqlTableModel::OnFieldChange);
     model->select();
-
-    ui->tableView->setModel(model);
-    ui->tableView->setEditTriggers(QAbstractItemView::DoubleClicked);
-
-    delete dbase;
 }
 
 void EditListDialog::deleteRow()

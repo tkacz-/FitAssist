@@ -419,7 +419,7 @@ background-color: rgb(56, 142, 60);</string>
        </font>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="pageCalculator">
        <layout class="QGridLayout" name="gridLayout_8">
@@ -1530,7 +1530,7 @@ QPushButton::hover {
             </item>
             <item>
              <property name="text">
-              <string>Средняя активность (тренировки 3-5 раз в неделю)</string>
+              <string>Средняя активность</string>
              </property>
             </item>
             <item>
