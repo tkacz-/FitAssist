@@ -132,6 +132,16 @@ QPushButton::hover {
          <item row="5" column="0" colspan="5">
           <widget class="QTableView" name="tableView"/>
          </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>Поиск</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
          <item row="2" column="4">
           <widget class="QPushButton" name="pushButtonSearch">
            <property name="font">
@@ -257,16 +267,6 @@ QPushButton::hover {
            </item>
           </widget>
          </item>
-         <item row="2" column="0">
-          <widget class="QLabel" name="label_2">
-           <property name="text">
-            <string>Поиск</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-           </property>
-          </widget>
-         </item>
          <item row="2" column="1" colspan="3">
           <widget class="QLineEdit" name="lineEditSearch">
            <property name="sizePolicy">
@@ -274,23 +274,6 @@ QPushButton::hover {
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="1" colspan="4">
-          <widget class="QSpinBox" name="spinBoxWeight">
-           <property name="minimum">
-            <number>1</number>
-           </property>
-           <property name="maximum">
-            <number>5000</number>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="0">
-          <widget class="QLabel" name="label_3">
-           <property name="text">
-            <string>Вес (г)</string>
            </property>
           </widget>
          </item>
@@ -310,6 +293,13 @@ QPushButton::hover {
            </property>
           </widget>
          </item>
+         <item row="6" column="0">
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>Вес (г)</string>
+           </property>
+          </widget>
+         </item>
          <item row="1" column="1" colspan="2">
           <widget class="QRadioButton" name="radioButtonBase">
            <property name="sizePolicy">
@@ -321,6 +311,9 @@ QPushButton::hover {
            <property name="text">
             <string>Базе</string>
            </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
            <property name="checked">
             <bool>true</bool>
            </property>
@@ -330,6 +323,16 @@ QPushButton::hover {
           <widget class="QRadioButton" name="radioButtonMyProducts">
            <property name="text">
             <string>Моем списке продуктов</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1" colspan="4">
+          <widget class="QSpinBox" name="spinBoxWeight">
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>5000</number>
            </property>
           </widget>
          </item>

@@ -7,9 +7,8 @@ EditListDialog::EditListDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    dbase = new QSqlDatabase(QSqlDatabase::addDatabase("QSQLITE"));
-    dbase->setDatabaseName(QDir::currentPath() + "/base/MyProducts.sqlite");
-    dbase->open();
+    dbase.setDatabaseName(QDir::currentPath() + "/base/MyProducts.sqlite");
+    dbase.open();
 
     model = new QSqlTableModel;
     model->setEditStrategy(QSqlTableModel::OnFieldChange);
@@ -26,7 +25,7 @@ EditListDialog::~EditListDialog()
 {
     delete ui;
 
-    delete dbase;
+    dbase.close();
     delete model;
 }
 

@@ -11,7 +11,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = FitnessCalc
 TEMPLATE = app
 
-VERSION = 0.0.0.12
+VERSION = 0.0.0.13
 QMAKE_TARGET_PRODUCT = FitnessCalc
 QMAKE_TARGET_COPYRIGHT = Copyright(C) 2016 Andrei Tkachenko
 QMAKE_TARGET_DESCRIPTION = Simple fitness helper

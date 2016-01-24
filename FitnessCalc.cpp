@@ -65,7 +65,8 @@ FitnessCalc::~FitnessCalc()
 {
     delete ui;
 
-    delete dbase;
+    if (dbase.isOpen())
+        dbase.close();
     delete model;
     delete profile;
 }
@@ -122,12 +123,20 @@ void FitnessCalc::getPFC(double protein, double fat, double carbonhydrate)
         ui->lblProtein->setText(QString::number(protein, 'g', 3) + " %");
         ui->lblFat->setText(QString::number(fat, 'g', 3) + " %");
         ui->lblCarbohydrate->setText(QString::number(carbonhydrate, 'g', 3) + " %");
+    } else {
+        ui->lblProtein->clear();
+        ui->lblFat->clear();
+        ui->lblCarbohydrate->clear();
     }
 }
 
 void FitnessCalc::getUpdateFlag(bool update)
 {
     if (update) {
+        dbase = QSqlDatabase::addDatabase("QSQLITE");
+        dbase.setDatabaseName(QDir::currentPath() + "/base/MyDiet.sqlite");
+        dbase.open();
+
         model->select();
         showTotal();
     }
@@ -135,7 +144,7 @@ void FitnessCalc::getUpdateFlag(bool update)
 
 void FitnessCalc::doubleClickedEdit(const QModelIndex &index)
 {
-    EditDialog *edit = new EditDialog();
+    EditDialog *edit = new EditDialog(this);
     edit->setAttribute(Qt::WA_DeleteOnClose, true);
 
     connect(this, &FitnessCalc::sendModel, edit, &EditDialog::getModel);
@@ -161,21 +170,21 @@ void FitnessCalc::removeAllRows()
 
 void FitnessCalc::clickedOnEditList()
 {
-    EditListDialog *editList = new EditListDialog();
+    EditListDialog *editList = new EditListDialog(this);
     editList->setAttribute(Qt::WA_DeleteOnClose, true);
     editList->show();
 }
 
 void FitnessCalc::clickedOnAboutDialog()
 {
-    aboutDialog *about = new aboutDialog();
+    aboutDialog *about = new aboutDialog(this);
     about->setAttribute(Qt::WA_DeleteOnClose, true);
     about->show();
 }
 
 void FitnessCalc::clickedOnAddDialog()
 {
-    addDialog *add = new addDialog();
+    addDialog *add = new addDialog(this);
     add->setAttribute(Qt::WA_DeleteOnClose, true);
 
     // Update the model when the signal come
@@ -269,8 +278,8 @@ void FitnessCalc::showNorms()
 
 void FitnessCalc::readMyDiet()
 {
-    dbase->setDatabaseName(QDir::currentPath() + "/base/MyDiet.sqlite");
-    dbase->open();
+    dbase.setDatabaseName(QDir::currentPath() + "/base/MyDiet.sqlite");
+    dbase.open();
 
     QSqlQuery query;
     QString str = "CREATE TABLE Рацион ("

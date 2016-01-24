@@ -6,12 +6,17 @@ addDialog::addDialog(QWidget *parent) :
     ui(new Ui::addDialog)
 {
     ui->setupUi(this);
+
     connect(ui->pushButtonSearch, &QAbstractButton::clicked, this, &addDialog::search);
 }
 
 addDialog::~addDialog()
 {
     delete ui;
+
+    if (dbase.isOpen())
+        dbase.close();
+    delete model;
 }
 
 void addDialog::accept()
@@ -37,23 +42,18 @@ void addDialog::search()
         QDir().mkdir("base");
 
     if (ui->radioButtonBase->isChecked()) {
-        QSqlDatabase dbase = QSqlDatabase::addDatabase("QSQLITE");
+        dbase = QSqlDatabase::addDatabase("QSQLITE");
         dbase.setDatabaseName(QDir::currentPath() + "/base/base.sqlite");
         dbase.open();
-
-        QSqlQueryModel *model = new QSqlQueryModel;
-        model->setQuery("SELECT * FROM " + categories[index] + " WHERE Наименование LIKE '%" + name + "%'");
-
-        ui->tableView->setModel(model);
     } else {
-        QSqlDatabase dbase = QSqlDatabase::addDatabase("QSQLITE");
+        dbase = QSqlDatabase::addDatabase("QSQLITE");
         dbase.setDatabaseName(QDir::currentPath() + "/base/MyProducts.sqlite");
         dbase.open();
-
-        QSqlQueryModel *model = new QSqlQueryModel;
-        model->setQuery("SELECT * FROM " + categories[index] + " WHERE Наименование LIKE '%" + name + "%'");
-        ui->tableView->setModel(model);
     }
+
+    model = new QSqlQueryModel();
+    model->setQuery("SELECT * FROM " + categories[index] + " WHERE Наименование LIKE '%" + name + "%'");
+    ui->tableView->setModel(model);
 }
 
 void addDialog::addToBaseOfMyDiet()
@@ -88,7 +88,7 @@ void addDialog::addToBaseOfMyDiet()
     if (!QDir("base").exists())
         QDir().mkdir("base");
 
-    QSqlDatabase dbase = QSqlDatabase::addDatabase("QSQLITE");
+    dbase = QSqlDatabase::addDatabase("QSQLITE");
     dbase.setDatabaseName(QDir::currentPath() + "/base/MyDiet.sqlite");
     dbase.open();
 
@@ -104,6 +104,8 @@ void addDialog::addToBaseOfMyDiet()
             .arg(QString::number(carbonhydrate))
             .arg(QString::number(calorie));
     query.exec(str);
+
+    dbase.close();
 
     ui->lineEditSearch->clear();
     ui->spinBoxWeight->clear();
@@ -124,7 +126,7 @@ void addDialog::addToBaseOfProduct()
     if (!QDir("base").exists())
         QDir().mkdir("base");
 
-    QSqlDatabase dbase = QSqlDatabase::addDatabase("QSQLITE");
+    dbase = QSqlDatabase::addDatabase("QSQLITE");
     dbase.setDatabaseName(QDir::currentPath() + "/base/MyProducts.sqlite");
     dbase.open();
 
@@ -148,6 +150,7 @@ void addDialog::addToBaseOfProduct()
             .arg(QString::number(calorie));
     query.exec(str);
 
+    dbase.close();
     ui->lineEditName->clear();
     ui->doubleSpinBoxProtein->clear();
     ui->doubleSpinBoxFat->clear();
