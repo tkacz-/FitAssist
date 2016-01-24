@@ -31,6 +31,9 @@ private:
 private:
     Ui::addDialog *ui;
 
+    QSqlDatabase dbase;
+    QSqlQueryModel *model = nullptr;
+
     QString categories[16] = { "Алкогольные_напитки",
                                   "Вода_соки_и_безалкогольные_напитки",
                                   "Грибы",

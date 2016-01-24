@@ -73,7 +73,7 @@ private:
 
     const QString fileName = "profile/profile.dat";
 
-    QSqlDatabase *dbase = new QSqlDatabase(QSqlDatabase::addDatabase("QSQLITE"));
+    QSqlDatabase dbase = QSqlDatabase::addDatabase("QSQLITE");
     QSqlTableModel *model = new QSqlTableModel();
     Profile *profile = new Profile();
 };

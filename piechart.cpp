@@ -18,7 +18,7 @@ void PieChart::paintEvent(QPaintEvent *)
 
     QPen pen;
     pen.setStyle(Qt::SolidLine);
-    pen.setWidth(1);
+    pen.setWidth(2);
     pen.setBrush(Qt::white);
     pen.setCapStyle(Qt::RoundCap);
     pen.setJoinStyle(Qt::RoundJoin);

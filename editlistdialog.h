@@ -27,7 +27,7 @@ public slots:
 private:
     Ui::EditListDialog *ui;
 
-    QSqlDatabase *dbase;
+    QSqlDatabase dbase = QSqlDatabase::addDatabase("QSQLITE");
     QSqlTableModel *model;
 };
 

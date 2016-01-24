@@ -94,4 +94,5 @@ void EditDialog::accept()
     model->setRecord(index.row(), record);
 
     emit sendUpdateFlag(true);
+    close();
 }
