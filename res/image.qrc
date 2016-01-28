@@ -18,4 +18,8 @@
         <file>images/man.png</file>
         <file>images/woman.png</file>
     </qresource>
+    <qresource prefix="/translations">
+        <file>translations/en.qm</file>
+        <file>translations/ru.qm</file>
+    </qresource>
 </RCC>

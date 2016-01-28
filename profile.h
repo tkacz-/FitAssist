@@ -1,11 +1,14 @@
 #ifndef PROFILE_H
 #define PROFILE_H
 
+#include <QCoreApplication>
 #include <QString>
 #include <QDataStream>
 
 class Profile
 {
+    Q_DECLARE_TR_FUNCTIONS(Profile)
+
 public:
     Profile();
     Profile(float w, short h, short age, QString g, float a, int calorie);

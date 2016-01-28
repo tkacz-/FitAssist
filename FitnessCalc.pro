@@ -45,3 +45,7 @@ CONFIG += c++11
 
 RESOURCES += \
     res/image.qrc
+
+#TRANSLATIONS += translations/ru.ts \
+#    translations/en.ts
+#DISTFILES += translations/*

@@ -7,6 +7,23 @@ addDialog::addDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    categories[0] = tr("Алкогольные_напитки");
+    categories[1] = tr("Вода_соки_и_безалкогольные_напитки");
+    categories[2] = tr("Грибы");
+    categories[3] = tr("Жиры_растительные_и_животные");
+    categories[4] = tr("Кондитерские_изделия");
+    categories[5] = tr("Крупы_злаки_и_зернобобовые");
+    categories[6] = tr("Молоко_и_молочные_продукты");
+    categories[7] = tr("Мука_крахмал_и_макаронные_изделия");
+    categories[8] = tr("Мясо_птица_и_мясные_продукты");
+    categories[9] = tr("Овощи_и_зелень");
+    categories[10] = tr("Орехи_и_семена");
+    categories[11] = tr("Рыба_и_морепродукты");
+    categories[12] = tr("Специи_приправы_и_соусы");
+    categories[13] = tr("Фрукты_и_ягоды");
+    categories[14] = tr("Хлеб_и_хлебобулочные_изделия");
+    categories[15] = tr("Яйца_и_продукты_из_них");
+
     connect(ui->pushButtonSearch, &QAbstractButton::clicked, this, &addDialog::search);
 }
 
@@ -52,7 +69,7 @@ void addDialog::search()
     }
 
     model = new QSqlQueryModel();
-    model->setQuery("SELECT * FROM " + categories[index] + " WHERE Наименование LIKE '%" + name + "%'");
+    model->setQuery("SELECT * FROM " + categories[index] + " WHERE " + tr("Наименование") + " LIKE '%" + name + "%'");
     ui->tableView->setModel(model);
 }
 
@@ -94,8 +111,14 @@ void addDialog::addToBaseOfMyDiet()
 
     QSqlQuery query;
     QString str;
-    QString strInsert = "INSERT INTO Рацион (Наименование,Вес,Белки,Жиры,Углеводы,Ккал)"
-                        "VALUES ('%1', %2, %3, %4, %5, %6);";
+    QString strInsert = "INSERT INTO " + tr("Рацион") + " ("
+            + tr("Наименование") + ","
+            + tr("Вес") + ","
+            + tr("Белки") + ","
+            + tr("Жиры") + ","
+            + tr("Углеводы") + ","
+            + tr("Ккал") + ")"
+            "VALUES ('%1', %2, %3, %4, %5, %6);";
 
     str = strInsert.arg(name)
             .arg(QString::number(weight))
@@ -132,16 +155,21 @@ void addDialog::addToBaseOfProduct()
 
     QSqlQuery query;
     QString str = "CREATE TABLE " + categories[index] + " ("
-                  "Наименование text, "
-                  "Белки double, "
-                  "Жиры double, "
-                  "Углеводы double, "
-                  "Ккал integer"
+                  + tr("Наименование") + " text, "
+                  + tr("Белки") + " double, "
+                  + tr("Жиры") + " double, "
+                  + tr("Углеводы") + " double, "
+                  + tr("Ккал") + " integer"
                   ");";
     query.exec(str);
 
-    QString strInsert = "INSERT INTO " + categories[index] + " (Наименование,Белки,Жиры,Углеводы,Ккал)"
-                        "VALUES ('%1', %2, %3, %4, %5);";
+    QString strInsert = "INSERT INTO " + categories[index] + " ("
+            + tr("Наименование") + ","
+            + tr("Белки") + ","
+            + tr("Жиры") + ","
+            + tr("Углеводы") + ","
+            + tr("Ккал") + ")"
+            "VALUES ('%1', %2, %3, %4, %5);";
 
     str = strInsert.arg(name)
             .arg(QString::number(protein))

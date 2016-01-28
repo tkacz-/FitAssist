@@ -73,48 +73,44 @@ FitnessCalc::~FitnessCalc()
 
 void FitnessCalc::setProfile()
 {
-    if (!ui->radioButtonMale->isChecked() && !ui->radioButtonFemale->isChecked()) {
-        QMessageBox::critical(this, tr("Ошибка"), tr("Пожалуйста, выберите Ваш пол."));
-    } else {
-        float weight = ui->doubleSpinBoxWeight->value();
-        short height = ui->spinBoxHeight->value();
-        short age = ui->spinBoxAge->value();
-        float activity;
-        switch (ui->comboBoxActivity->currentIndex()) {
-        case 0:
-            activity = 1.2;
-            break;
-        case 1:
-            activity = 1.375;
-            break;
-        case 2:
-            activity = 1.55;
-            break;
-        case 3:
-            activity = 1.725;
-            break;
-        case 4:
-            activity = 1.9;
-            break;
-        }
-        QString gender;
-        if (ui->radioButtonMale->isChecked())
-            gender = "male";
-        else
-            gender = "female";
-        int targetCalorie = ui->spinBoxTarget->value();
-
-        profile->setWeigth(weight);
-        profile->setHeigth(height);
-        profile->setAge(age);
-        profile->setGender(gender);
-        profile->setActivity(activity);
-        profile->setCalorie(targetCalorie);
-        profile->calculateNorms();
-
-        writeProfile();
-        showNorms();
+    float weight = ui->doubleSpinBoxWeight->value();
+    short height = ui->spinBoxHeight->value();
+    short age = ui->spinBoxAge->value();
+    float activity;
+    switch (ui->comboBoxActivity->currentIndex()) {
+    case 0:
+        activity = 1.2;
+        break;
+    case 1:
+        activity = 1.375;
+        break;
+    case 2:
+        activity = 1.55;
+        break;
+    case 3:
+        activity = 1.725;
+        break;
+    case 4:
+        activity = 1.9;
+        break;
     }
+    QString gender;
+    if (ui->radioButtonMale->isChecked())
+        gender = "male";
+    else
+        gender = "female";
+    int targetCalorie = ui->spinBoxTarget->value();
+
+    profile->setWeigth(weight);
+    profile->setHeigth(height);
+    profile->setAge(age);
+    profile->setGender(gender);
+    profile->setActivity(activity);
+    profile->setCalorie(targetCalorie);
+    profile->calculateNorms();
+
+    writeProfile();
+    showNorms();
 }
 
 void FitnessCalc::getPFC(double protein, double fat, double carbonhydrate)
@@ -267,7 +263,7 @@ void FitnessCalc::writeProfile()
 void FitnessCalc::showNorms()
 {
     ui->labelTarget->setText(QString::number(profile->getCalorie()));
-    ui->labelTargetCcal->setText(" Ккал");
+    ui->labelTargetCcal->setText(" " + tr("Ккал"));
     ui->labelBMI->setText(QString::number(profile->getBMI(),'g',3));
     ui->labelConformity->setText(profile->getConclusion());
     QString res = QString::number(profile->getOptimalWeightMin(),'g',3) + " - " + QString::number(profile->getOptimalWeightMax(),'g',4);
@@ -282,17 +278,17 @@ void FitnessCalc::readMyDiet()
     dbase.open();
 
     QSqlQuery query;
-    QString str = "CREATE TABLE Рацион ("
-                  "Наименование text, "
-                  "Вес double, "
-                  "Белки double, "
-                  "Жиры double, "
-                  "Углеводы double, "
-                  "Ккал integer"
+    QString str = "CREATE TABLE " + tr("Рацион") + " ("
+                  + tr("Наименование") + " text, "
+                  + tr("Вес") + " double, "
+                  + tr("Белки") + " double, "
+                  + tr("Жиры") + " double, "
+                  + tr("Углеводы") + " double, "
+                  + tr("Ккал") + " integer"
                   ");";
     query.exec(str);
 
-    model->setTable("Рацион");
+    model->setTable(tr("Рацион"));
     model->setEditStrategy(QSqlTableModel::OnFieldChange);
     model->select();
 
@@ -315,11 +311,11 @@ void FitnessCalc::showTotal()
     double carbonhydrate = 0;
 
     for (int i = 0; i < model->rowCount(); i++) {
-        weight += model->record(i).value("Вес").toInt();
-        protein += model->record(i).value("Белки").toDouble();
-        fat += model->record(i).value("Жиры").toDouble();
-        carbonhydrate += model->record(i).value("Углеводы").toDouble();
-        calorie += model->record(i).value("Ккал").toInt();
+        weight += model->record(i).value(tr("Вес")).toInt();
+        protein += model->record(i).value(tr("Белки")).toDouble();
+        fat += model->record(i).value(tr("Жиры")).toDouble();
+        carbonhydrate += model->record(i).value(tr("Углеводы")).toDouble();
+        calorie += model->record(i).value(tr("Ккал")).toInt();
     }
 
     ui->lblWeight->setText(QString::number(weight));
@@ -328,15 +324,15 @@ void FitnessCalc::showTotal()
     ui->lblCarbohydrate_Conlusion->setText(QString::number(carbonhydrate));
     ui->lblCalorie_Conclusion->setText(QString::number(calorie));
     ui->labelRecieved->setText(QString::number(calorie));
-    ui->labelRecievedCcal->setText(" Ккал");
+    ui->labelRecievedCcal->setText(" " + tr("Ккал"));
 
     int targetCalorie = ui->labelTarget->text().toInt();
     if (calorie > 0 && targetCalorie != 0) {
         ui->labelLefted->setText(QString::number(targetCalorie - calorie));
-        ui->labelLeftedCcal->setText(" Ккал");
+        ui->labelLeftedCcal->setText(" " + tr("Ккал"));
     } else {
         ui->labelLefted->setText("0");
-        ui->labelLeftedCcal->setText(" Ккал");
+        ui->labelLeftedCcal->setText(" " + tr("Ккал"));
     }
 
     emit sendPFC(protein, fat, carbonhydrate);

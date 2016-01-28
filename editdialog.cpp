@@ -84,12 +84,12 @@ void EditDialog::accept()
     int calorie = ui->labelCalorie->text().toInt();
 
     QSqlRecord record = model->record(index.row());
-    record.setValue("Наименование", name);
-    record.setValue("Вес", weight);
-    record.setValue("Белки", protein);
-    record.setValue("Жиры", fat);
-    record.setValue("Углеводы", carbonhydrate);
-    record.setValue("Ккал", calorie);
+    record.setValue(tr("Наименование"), name);
+    record.setValue(tr("Вес"), weight);
+    record.setValue(tr("Белки"), protein);
+    record.setValue(tr("Жиры"), fat);
+    record.setValue(tr("Углеводы"), carbonhydrate);
+    record.setValue(tr("Ккал"), calorie);
 
     model->setRecord(index.row(), record);
 
