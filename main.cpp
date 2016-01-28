@@ -6,6 +6,10 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
+    QTranslator translator;
+    translator.load(":translations/translations/ru.qm");
+    a.installTranslator(&translator);
+
     int screenWidth;
     int screenHeight;
 

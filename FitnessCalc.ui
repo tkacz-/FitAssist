@@ -196,7 +196,6 @@ QListView:item:selected:active {
 
 QPushButton::pressed { 
     background-color: rgb(200, 230, 201);
-	border-style: inset 1px;
 }
 
 QPushButton::hover {
@@ -232,7 +231,7 @@ QPushButton::hover {
 background-color: rgb(56, 142, 60);</string>
         </property>
         <property name="text">
-         <string>Фитнес калькулятор</string>
+         <string> Фитнес калькулятор</string>
         </property>
        </widget>
       </item>
@@ -249,7 +248,7 @@ background-color: rgb(56, 142, 60);</string>
 background-color: rgb(56, 142, 60);</string>
         </property>
         <property name="text">
-         <string> Версия 0.0.0.13</string>
+         <string>   Версия 0.0.0.13</string>
         </property>
        </widget>
       </item>
@@ -419,7 +418,7 @@ background-color: rgb(56, 142, 60);</string>
        </font>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="pageCalculator">
        <layout class="QGridLayout" name="gridLayout_8">
@@ -1655,7 +1654,7 @@ QPushButton::hover {
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>98</width>
+             <width>69</width>
              <height>69</height>
             </rect>
            </property>
