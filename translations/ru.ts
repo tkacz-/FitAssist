@@ -54,7 +54,7 @@
     </message>
     <message>
         <location filename="../editlistdialog.ui" line="38"/>
-        <source>* изминения вступают в силу сразу</source>
+        <source>* изменения вступают в силу сразу</source>
         <translation></translation>
     </message>
     <message>
@@ -227,67 +227,72 @@
 <context>
     <name>FitnessCalc</name>
     <message>
-        <location filename="../FitnessCalc.ui" line="106"/>
-        <source>Калькулятор</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../FitnessCalc.ui" line="124"/>
+        <location filename="../FitnessCalc.ui" line="343"/>
         <source>Статистика</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="142"/>
+        <location filename="../FitnessCalc.ui" line="361"/>
         <source>Персональные нормы</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="160"/>
+        <location filename="../FitnessCalc.ui" line="379"/>
         <source>Справка</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="207"/>
+        <location filename="../FitnessCalc.ui" line="72"/>
         <source>Обновить базу</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="235"/>
+        <location filename="../FitnessCalc.ui" line="100"/>
         <source> Фитнес калькулятор</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="252"/>
+        <location filename="../FitnessCalc.ui" line="117"/>
         <source>   Версия 0.0.0.13</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="453"/>
+        <location filename="../FitnessCalc.ui" line="151"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://tkaczenko.wordpress.com/projects/fitnesscalc-ru/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#c8e6c9;&quot;&gt;tkaczenko.wordpress.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../FitnessCalc.ui" line="325"/>
+        <source>Калькулятор калорий</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../FitnessCalc.ui" line="452"/>
         <source>Добавить</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="495"/>
+        <location filename="../FitnessCalc.ui" line="494"/>
         <source>Изменить список продуктов</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="540"/>
+        <location filename="../FitnessCalc.ui" line="539"/>
         <source>Удалить</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="601"/>
+        <location filename="../FitnessCalc.ui" line="600"/>
         <source>Очистить</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="619"/>
+        <location filename="../FitnessCalc.ui" line="618"/>
         <source>Г</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="636"/>
+        <location filename="../FitnessCalc.ui" line="635"/>
         <location filename="../FitnessCalc.cpp" line="266"/>
         <location filename="../FitnessCalc.cpp" line="287"/>
         <location filename="../FitnessCalc.cpp" line="318"/>
@@ -298,178 +303,213 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="653"/>
+        <location filename="../FitnessCalc.ui" line="652"/>
         <source>Ж</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="670"/>
+        <location filename="../FitnessCalc.ui" line="669"/>
         <source>Б</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="687"/>
+        <location filename="../FitnessCalc.ui" line="686"/>
         <source>У</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="721"/>
+        <location filename="../FitnessCalc.ui" line="720"/>
         <source>ИТОГ:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="856"/>
+        <location filename="../FitnessCalc.ui" line="855"/>
         <source>  Осталось   </source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="893"/>
+        <location filename="../FitnessCalc.ui" line="892"/>
         <source>  Цель</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="948"/>
+        <location filename="../FitnessCalc.ui" line="947"/>
         <source>             Получено   </source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="1062"/>
+        <location filename="../FitnessCalc.ui" line="1061"/>
         <location filename="../FitnessCalc.cpp" line="285"/>
         <location filename="../FitnessCalc.cpp" line="316"/>
         <source>Жиры</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="1095"/>
+        <location filename="../FitnessCalc.ui" line="1094"/>
         <location filename="../FitnessCalc.cpp" line="284"/>
         <location filename="../FitnessCalc.cpp" line="315"/>
         <source>Белки</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="1138"/>
+        <location filename="../FitnessCalc.ui" line="1137"/>
         <location filename="../FitnessCalc.cpp" line="286"/>
         <location filename="../FitnessCalc.cpp" line="317"/>
         <source>Углеводы</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="1199"/>
+        <location filename="../FitnessCalc.ui" line="1198"/>
         <source>ПИЩЕВАЯ ЦЕННОСТЬ ПОТРЕБЛЯЕМЫХ ПРОДУКТОВ ЗА ВСЕ ВРЕМЯ</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="1228"/>
+        <location filename="../FitnessCalc.ui" line="1227"/>
         <source>Оптимальный Вес (кг):</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="1256"/>
+        <location filename="../FitnessCalc.ui" line="1255"/>
         <source>Дневная Норма Калорий:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="1269"/>
+        <location filename="../FitnessCalc.ui" line="1268"/>
         <source>Дневная Норма Воды (л):</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="1297"/>
+        <location filename="../FitnessCalc.ui" line="1296"/>
         <source>Индекс Массы Тела:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="1377"/>
+        <location filename="../FitnessCalc.ui" line="1376"/>
         <source>МОИ ДАННЫЕ</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="1392"/>
+        <location filename="../FitnessCalc.ui" line="1391"/>
         <source>Вес (кг)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="1405"/>
+        <location filename="../FitnessCalc.ui" line="1404"/>
         <source>Активность</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="1419"/>
+        <location filename="../FitnessCalc.ui" line="1418"/>
         <source>Дневная Цель Калорий</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="1432"/>
+        <location filename="../FitnessCalc.ui" line="1431"/>
         <source>Рост (см)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="1445"/>
+        <location filename="../FitnessCalc.ui" line="1444"/>
         <source>Пол</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="1468"/>
+        <location filename="../FitnessCalc.ui" line="1467"/>
         <source>Возраст</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="1475"/>
+        <location filename="../FitnessCalc.ui" line="1474"/>
         <source>Мужчина</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="1485"/>
+        <location filename="../FitnessCalc.ui" line="1484"/>
         <source>Женщина</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="1515"/>
+        <location filename="../FitnessCalc.ui" line="1514"/>
         <source>Применить</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="1523"/>
+        <location filename="../FitnessCalc.ui" line="1522"/>
         <source>Сидячий образ жизни</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="1528"/>
+        <location filename="../FitnessCalc.ui" line="1527"/>
         <source>Легкая активность</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="1533"/>
+        <location filename="../FitnessCalc.ui" line="1532"/>
         <source>Средняя активность</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="1538"/>
+        <location filename="../FitnessCalc.ui" line="1537"/>
         <source>Высокая активность</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="1543"/>
+        <location filename="../FitnessCalc.ui" line="1542"/>
         <source>Экстремально-высокая активность</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="1599"/>
+        <location filename="../FitnessCalc.ui" line="1598"/>
         <source>МОИ НОРМЫ</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="1608"/>
+        <location filename="../FitnessCalc.ui" line="1607"/>
         <source>Советы тренера</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="1641"/>
-        <source>СОВЕТЫ ПРОФЕССИОНАЛЬНОГО ТРЕНЕРА</source>
+        <location filename="../FitnessCalc.ui" line="1677"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://tkaczenko.wordpress.com/create-profile-ru/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Создание профиля&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../FitnessCalc.ui" line="1696"/>
+        <location filename="../FitnessCalc.ui" line="1690"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://tkaczenko.wordpress.com/edit-list-of-product-ru/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Редактирование списка продуктов&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../FitnessCalc.ui" line="1703"/>
+        <source>Содержание</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../FitnessCalc.ui" line="1720"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://tkaczenko.wordpress.com/add-product-ru/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Добавление продукта в список&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../FitnessCalc.ui" line="1733"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://tkaczenko.wordpress.com/add-to-my-diet-ru/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Добавление продукта в рацион&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../FitnessCalc.ui" line="1746"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://tkaczenko.wordpress.com/statistics-ru/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Статистика&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../FitnessCalc.ui" line="1759"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://tkaczenko.wordpress.com/edit-weight-of-my-diet-ru/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Изменить вес продукта в рационе&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../FitnessCalc.ui" line="1822"/>
+        <source>С ЧЕГО НАЧАТЬ ?</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../FitnessCalc.ui" line="1640"/>
         <source>О программе FitnessCalc...</source>
         <translation></translation>
     </message>
@@ -597,6 +637,11 @@
     <message>
         <location filename="../aboutDialog.ui" line="203"/>
         <source>Поддержка:</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../aboutDialog.ui" line="242"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://tkaczenko.wordpress.com/projects/fitnesscalc-ru/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;tkaczenko.wordpress.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation></translation>
     </message>
 </context>
