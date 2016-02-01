@@ -14,7 +14,7 @@ TEMPLATE = app
 VERSION = 0.0.0.13
 QMAKE_TARGET_PRODUCT = FitnessCalc
 QMAKE_TARGET_COPYRIGHT = Copyright(C) 2016 Andrei Tkachenko
-QMAKE_TARGET_DESCRIPTION = Simple fitness helper
+QMAKE_TARGET_DESCRIPTION = Simple fitness assistant
 
 SOURCES += main.cpp\
         FitnessCalc.cpp \
