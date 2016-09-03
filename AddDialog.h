@@ -6,16 +6,16 @@
 #include <QtSql>
 
 namespace Ui {
-class addDialog;
+class AddDialog;
 }
 
-class addDialog : public QDialog
+class AddDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit addDialog(QWidget *parent = 0);
-    ~addDialog();
+    explicit AddDialog(QWidget *parent = 0);
+    ~AddDialog();
 
 signals:
     void sendUpdateFlag(bool update);
@@ -29,7 +29,7 @@ private:
     void addToBaseOfProduct();
 
 private:
-    Ui::addDialog *ui;
+    Ui::AddDialog *ui;
 
     QSqlDatabase dbase;
     QSqlQueryModel *model = nullptr;

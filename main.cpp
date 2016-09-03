@@ -1,4 +1,4 @@
-#include "FitnessCalc.h"
+#include "FitAssist.h"
 #include <QApplication>
 #include <QDesktopWidget>
 
@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 
     int x, y;
 
-    FitnessCalc w;
+    FitAssist w;
 
     QDesktopWidget *desktop = QApplication::desktop();
 

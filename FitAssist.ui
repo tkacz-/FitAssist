@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>FitnessCalc</class>
- <widget class="QMainWindow" name="FitnessCalc">
+ <class>FitAssist</class>
+ <widget class="QMainWindow" name="FitAssist">
   <property name="enabled">
    <bool>true</bool>
   </property>
@@ -128,7 +128,7 @@ background-color: rgb(56, 142, 60);</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="res/image.qrc">:/logo/images/logo.png</pixmap>
+         <pixmap resource="res/resources.qrc">:/logo/images/logo.png</pixmap>
         </property>
         <property name="alignment">
          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -334,7 +334,7 @@ QListView:item:selected:active {
         <set>AlignLeading|AlignVCenter</set>
        </property>
        <property name="icon">
-        <iconset resource="res/image.qrc">
+        <iconset resource="res/resources.qrc">
          <normaloff>:/menu/images/calculator.png</normaloff>:/menu/images/calculator.png</iconset>
        </property>
       </item>
@@ -352,7 +352,7 @@ QListView:item:selected:active {
         <set>AlignLeading|AlignVCenter</set>
        </property>
        <property name="icon">
-        <iconset resource="res/image.qrc">
+        <iconset resource="res/resources.qrc">
          <normaloff>:/menu/images/statistics.png</normaloff>:/menu/images/statistics.png</iconset>
        </property>
       </item>
@@ -370,7 +370,7 @@ QListView:item:selected:active {
         <set>AlignLeading|AlignVCenter</set>
        </property>
        <property name="icon">
-        <iconset resource="res/image.qrc">
+        <iconset resource="res/resources.qrc">
          <normaloff>:/menu/images/norms.png</normaloff>:/menu/images/norms.png</iconset>
        </property>
       </item>
@@ -385,7 +385,7 @@ QListView:item:selected:active {
         </font>
        </property>
        <property name="icon">
-        <iconset resource="res/image.qrc">
+        <iconset resource="res/resources.qrc">
          <normaloff>:/menu/images/help.png</normaloff>:/menu/images/help.png</iconset>
        </property>
       </item>
@@ -452,7 +452,7 @@ QPushButton::hover {
              <string>Добавить</string>
             </property>
             <property name="icon">
-             <iconset resource="res/image.qrc">
+             <iconset resource="res/resources.qrc">
               <normaloff>:/action/images/add.png</normaloff>:/action/images/add.png</iconset>
             </property>
             <property name="iconSize">
@@ -494,7 +494,7 @@ QPushButton::hover {
              <string>Изменить список продуктов</string>
             </property>
             <property name="icon">
-             <iconset resource="res/image.qrc">
+             <iconset resource="res/resources.qrc">
               <normaloff>:/action/images/edit.png</normaloff>:/action/images/edit.png</iconset>
             </property>
             <property name="iconSize">
@@ -539,7 +539,7 @@ QPushButton::hover {
              <string>Удалить</string>
             </property>
             <property name="icon">
-             <iconset resource="res/image.qrc">
+             <iconset resource="res/resources.qrc">
               <normaloff>:/action/images/delete.png</normaloff>:/action/images/delete.png</iconset>
             </property>
             <property name="iconSize">
@@ -1344,6 +1344,13 @@ color: rgb(64, 165, 223);</string>
           </item>
          </layout>
         </item>
+        <item row="6" column="0">
+         <widget class="Line" name="line_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
         <item row="3" column="0">
          <spacer name="verticalSpacer">
           <property name="orientation">
@@ -1356,13 +1363,6 @@ color: rgb(64, 165, 223);</string>
            </size>
           </property>
          </spacer>
-        </item>
-        <item row="6" column="0">
-         <widget class="Line" name="line_2">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
         </item>
         <item row="0" column="0">
          <widget class="QLabel" name="label_22">
@@ -1598,30 +1598,6 @@ QPushButton::hover {
            <string>МОИ НОРМЫ</string>
           </property>
          </widget>
-        </item>
-        <item row="8" column="0">
-         <layout class="QHBoxLayout" name="buttonLayout_2">
-          <item>
-           <widget class="QCommandLinkButton" name="commandLinkButtonAdvices">
-            <property name="text">
-             <string>Советы тренера</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacerAdvices">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
         </item>
        </layout>
       </widget>
@@ -1860,11 +1836,10 @@ QPushButton::hover {
   <tabstop>spinBoxTarget</tabstop>
   <tabstop>comboBoxActivity</tabstop>
   <tabstop>pushButtonApply</tabstop>
-  <tabstop>commandLinkButtonAdvices</tabstop>
   <tabstop>commandLinkButtonAbout</tabstop>
  </tabstops>
  <resources>
-  <include location="res/image.qrc"/>
+  <include location="res/resources.qrc"/>
  </resources>
  <connections/>
 </ui>

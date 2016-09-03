@@ -1,5 +1,5 @@
-#include "editdialog.h"
-#include "ui_editdialog.h"
+#include "EditDialog.h"
+#include "ui_EditDialog.h"
 
 EditDialog::EditDialog(QWidget *parent) :
     QDialog(parent),
@@ -44,7 +44,7 @@ void EditDialog::showEdit(const QModelIndex &index)
     myData = model->data(myIndex, Qt::DisplayRole);
     res = std::floor(myData.toDouble() * 1000 + 0.5) / 1000;
     ui->labelCarbonhydrate->setText(QString::number(res));
-    this->carbonhydrate = myData.toDouble();
+    this->carbohydrate = myData.toDouble();
 
     myIndex = model->index(row, 5, QModelIndex());
     myData = model->data(myIndex, Qt::DisplayRole);
@@ -65,12 +65,12 @@ void EditDialog::weightChanged(int value)
 {
     double protein = value * this->protein / this->weight;
     double fat = value * this->fat / this->weight;
-    double carbonhydrate = value * this->carbonhydrate / this->weight;
+    double carbohydrate = value * this->carbohydrate / this->weight;
     int calorie = value* this->calorie / this->weight;
 
     ui->labelProtein->setText(QString::number(protein));
     ui->labelFat->setText(QString::number(fat));
-    ui->labelCarbonhydrate->setText(QString::number(carbonhydrate));
+    ui->labelCarbonhydrate->setText(QString::number(carbohydrate));
     ui->labelCalorie->setText(QString::number(calorie));
 }
 
@@ -80,7 +80,7 @@ void EditDialog::accept()
     int weight = ui->spinBoxWeight->value();
     double protein = ui->labelProtein->text().toDouble();
     double fat = ui->labelFat->text().toDouble();
-    double carbonhydrate = ui->labelCarbonhydrate->text().toDouble();
+    double carbohydrate = ui->labelCarbonhydrate->text().toDouble();
     int calorie = ui->labelCalorie->text().toInt();
 
     QSqlRecord record = model->record(index.row());
@@ -88,7 +88,7 @@ void EditDialog::accept()
     record.setValue(tr("Вес"), weight);
     record.setValue(tr("Белки"), protein);
     record.setValue(tr("Жиры"), fat);
-    record.setValue(tr("Углеводы"), carbonhydrate);
+    record.setValue(tr("Углеводы"), carbohydrate);
     record.setValue(tr("Ккал"), calorie);
 
     model->setRecord(index.row(), record);

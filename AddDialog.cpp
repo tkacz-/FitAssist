@@ -1,9 +1,9 @@
-#include "adddialog.h"
-#include "ui_adddialog.h"
+#include "AddDialog.h"
+#include "ui_AddDialog.h"
 
-addDialog::addDialog(QWidget *parent) :
+AddDialog::AddDialog(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::addDialog)
+    ui(new Ui::AddDialog)
 {
     ui->setupUi(this);
 
@@ -24,10 +24,10 @@ addDialog::addDialog(QWidget *parent) :
     categories[14] = tr("Хлеб_и_хлебобулочные_изделия");
     categories[15] = tr("Яйца_и_продукты_из_них");
 
-    connect(ui->pushButtonSearch, &QAbstractButton::clicked, this, &addDialog::search);
+    connect(ui->pushButtonSearch, &QAbstractButton::clicked, this, &AddDialog::search);
 }
 
-addDialog::~addDialog()
+AddDialog::~AddDialog()
 {
     delete ui;
 
@@ -36,7 +36,7 @@ addDialog::~addDialog()
     delete model;
 }
 
-void addDialog::accept()
+void AddDialog::accept()
 {
     if (ui->comboBox->currentIndex() == 0) {
         if (ui->tableView->currentIndex().row() == -1)
@@ -48,7 +48,7 @@ void addDialog::accept()
     }
 }
 
-void addDialog::search()
+void AddDialog::search()
 {
     QString name = ui->lineEditSearch->text();
     name[0] = name[0].toUpper();
@@ -73,7 +73,7 @@ void addDialog::search()
     ui->tableView->setModel(model);
 }
 
-void addDialog::addToBaseOfMyDiet()
+void AddDialog::addToBaseOfMyDiet()
 {
     int weight = ui->spinBoxWeight->value();
 
@@ -136,7 +136,7 @@ void addDialog::addToBaseOfMyDiet()
     emit sendUpdateFlag(true);
 }
 
-void addDialog::addToBaseOfProduct()
+void AddDialog::addToBaseOfProduct()
 {    
     QString name = ui->lineEditName->text();
     double protein = ui->doubleSpinBoxProtein->value();

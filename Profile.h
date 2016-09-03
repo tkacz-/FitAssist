@@ -5,17 +5,40 @@
 #include <QString>
 #include <QDataStream>
 
+/*!
+ * \brief Serialized class for user's profile and calculating personal norms.
+ *
+ * This class calculates the all personal norms.
+ * A list of norms:
+ *  - BMI;
+ *  - BMR;
+ *  - Optimal weight;
+ *  - Daily water norms;
+ *
+ * \author tkaczenko (Andrii Tkachenko)
+ */
 class Profile
 {
     Q_DECLARE_TR_FUNCTIONS(Profile)
 
 public:
+    /// Create an empty Profile
     Profile();
+
+    /*!
+     * \brief Create profile with basic information
+     * \param[in] w         User's weight
+     * \param[in] h         User's height
+     * \param[in] age       User's age
+     * \param[in] g         Gender type
+     * \param[in] a         User's activity coefficient
+     * \param[in] calorie   Targeted number of daily calories
+     */
     Profile(float w, short h, short age, QString g, float a, int calorie);
 
     ~Profile();
 
-    //ostream, << overloading
+    // ostream, << overloading
     friend QDataStream &operator<<(QDataStream &out, const Profile &p)
     {
         out << p.getWeigth() << p.getHeigth() << p.getAge() << p.getGender()
@@ -25,7 +48,7 @@ public:
         return out;
     }
 
-    //istream, >> overloading
+    // istream, >> overloading
     friend QDataStream &operator>>(QDataStream &in, Profile &p)
     {
         float weight;
@@ -56,7 +79,7 @@ public:
         return in;
     }
 
-    //Calculate the all profile norms
+    /// Calculate the all profile norms
     void calculateNorms();
 
     void setWeigth(float w);
@@ -96,50 +119,54 @@ public:
     double getWater() const;
 
 private:
-
-    /**
-     * @brief Calculating BMI @see https://en.wikipedia.org/wiki/Body_mass_index
-     * @return BMI number
+    /*!
+     * \brief Calculate BMI
+     * \see https://en.wikipedia.org/wiki/Body_mass_index
+     * \return BMI number
      */
     double calculateBMI();
 
-    /**
-     * @brief conclusionBMI
-     * @param res is the BMI number
-     * @return conlclusion
+    /*!
+     * \brief Get conclusion by BMI number
+     * \param[in] res   is the BMI number
+     * \return Conlcusion
      */
     QString conclusionBMI(double res);
 
-    /**
-     * @brief calculateOptimalWeight
-     * @param min is the minimum weight
-     * @param max is the maximum weight
+    /*!
+     * \brief Calculate optimal weight by BMI
+     * \param[in,out] min   killograms of minimum optimal weight
+     * \param[in,out] max   killograms of maximum optimal weight
      */
     void calculateOptimalWeight(double &min, double &max);
 
-    /**
-     * @brief calculateBMR @https://en.wikipedia.org/wiki/Basal_metabolic_rate
-     * @return BMR number
+    /*!
+     * \brief Calculate BMR
+     * \see https://en.wikipedia.org/wiki/Basal_metabolic_rate
+     * \return BMR number
      */
     double calculateBMR();
 
-    //Calculate norm of water
+    /*!
+     * \brief Calculate optimal daily water norm.
+     * \return Liters of optimal daily number of water
+     */
     double calculateWater();
 
 private:
-    float weight;
-    short height;
-    short age;
-    QString gender;
-    float activity;
-    int calorie;
+    float weight;       /*!< User's weight(kg) */
+    short height;       /*!< User's height(cm) */
+    short age;          /*!< User's age */
+    QString gender;     /*!< User's gender */
+    float activity;     /*!< Coefficient of user's activity */
+    int calorie;        /*!< Targeted number of daily calories */
 
     double bmi;
-    QString conclusion;
-    double minWeight;
-    double maxWeight;
-    double bmr;
-    double water;
+    QString conclusion; /*!< Conclusion by BMI */
+    double minWeight;   /*!< Minimum of optimal weight */
+    double maxWeight;   /*!< Maximum of optimal weigth */
+    double bmr;         /*!< BMR number */
+    double water;       /*!< Liters of optimal daily number of water */
 };
 
 #endif // PROFILE_H

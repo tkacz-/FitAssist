@@ -1,4 +1,4 @@
-#include "piechart.h"
+#include "PieChart.h"
 
 PieChart::PieChart(QWidget *parent) : QWidget(parent)
 {
@@ -23,30 +23,30 @@ void PieChart::paintEvent(QPaintEvent *)
     pen.setCapStyle(Qt::RoundCap);
     pen.setJoinStyle(Qt::RoundJoin);
 
-    double sum = protein + fat + carbonhydrate;
+    double sum = protein + fat + carbohydrate;
 
-    if (protein == protein && fat == fat && carbonhydrate == carbonhydrate) {
-        emit sendPFC(protein * 100 / sum, fat * 100 / sum, carbonhydrate * 100 / sum);
+    if (protein == protein && fat == fat && carbohydrate == carbohydrate) {
+        emit sendPFC(protein * 100 / sum, fat * 100 / sum, carbohydrate * 100 / sum);
 
-        //Белки
+        //Proteins
         painter.setBrush(QColor("#5DA5DA"));
         painter.setPen(pen);
         painter.drawPie(size, 0, protein * 360 * 16 / sum);
 
-        //Жиры
+        //Fats
         painter.setBrush(QColor("#FAA43A"));
         painter.drawPie(size, protein * 360 * 16 / sum, fat * 360 * 16 / sum);
 
-        //Углеводы
+        //Carbohydrates
         painter.setBrush(QColor("#B276B2"));
-        painter.drawPie(size, protein * 360 * 16 / sum + fat * 360 * 16 / sum, carbonhydrate * 360 * 16 / sum);
+        painter.drawPie(size, protein * 360 * 16 / sum + fat * 360 * 16 / sum, carbohydrate * 360 * 16 / sum);
     }
 }
 
-void PieChart::getPFC(double protein, double fat, double carbonhydrate)
+void PieChart::getPFC(double protein, double fat, double carbohydrate)
 {
     this->protein = protein;
     this->fat = fat;
-    this->carbonhydrate = carbonhydrate;
+    this->carbohydrate = carbohydrate;
 }
 

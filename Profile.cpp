@@ -1,4 +1,4 @@
-#include "profile.h"
+#include "Profile.h"
 
 Profile::Profile()
 {
@@ -47,7 +47,7 @@ double Profile::calculateBMI()
 
 QString Profile::conclusionBMI(double res)
 {
-    QString Conclusion[7] = { tr("Выраженный дефицит массы тела"),
+    QString conclusions[7] = { tr("Выраженный дефицит массы тела"),
                                   tr("Недостаточная масса тела"),
                                   tr("Норма"),
                                   tr("Избыточная масса тела"),
@@ -57,19 +57,19 @@ QString Profile::conclusionBMI(double res)
     QString temp;
     res = std::floor(res * 100 + 0.5) / 100;
     if (res < 16)
-        temp = Conclusion[0];
+        temp = conclusions[0];
     if (res >= 16 && res < 18.5)
-        temp = Conclusion[1];
+        temp = conclusions[1];
     if (res >= 18.5 && res < 24.99)
-        temp = Conclusion[2];
+        temp = conclusions[2];
     if (res >= 25 && res < 30)
-        temp = Conclusion[3];
+        temp = conclusions[3];
     if (res >= 30 && res < 35)
-        temp = Conclusion[4];
+        temp = conclusions[4];
     if (res >= 35 && res < 40)
-        temp = Conclusion[5];
+        temp = conclusions[5];
     if (res >= 40)
-        temp = Conclusion[6];
+        temp = conclusions[6];
     return temp;
 }
 

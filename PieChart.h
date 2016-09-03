@@ -17,15 +17,15 @@ protected:
     void paintEvent(QPaintEvent *);
 
 signals:
-    void sendPFC(double protein, double fat, double carbonhydrate);
+    void sendPFC(double protein, double fat, double carbohydrate);
 
 public slots:
-    void getPFC(double protein, double fat, double carbonhydrate);
+    void getPFC(double protein, double fat, double carbohydrate);
 
 private:
     double protein;
     double fat;
-    double carbonhydrate;
+    double carbohydrate;
 };
 
 #endif // PIECHART_H

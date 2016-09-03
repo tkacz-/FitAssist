@@ -1,9 +1,9 @@
-#include "FitnessCalc.h"
-#include "ui_FitnessCalc.h"
+#include "FitAssist.h"
+#include "ui_FitAssist.h"
 
-FitnessCalc::FitnessCalc(QWidget *parent) :
+FitAssist::FitAssist(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::FitnessCalc)
+    ui(new Ui::FitAssist)
 {
     ui->setupUi(this);
 
@@ -33,35 +33,32 @@ FitnessCalc::FitnessCalc(QWidget *parent) :
     // Click on the listWidgetMenu
     connect(ui->listWidgetMenu, &QListWidget::currentRowChanged,  ui->stackedWidget,  &QStackedWidget::setCurrentIndex);
 
-    // Click on the commandLinkButtonAdvices
-    connect(ui->commandLinkButtonAdvices, &QCommandLinkButton::clicked, this, &FitnessCalc::showAdvices);
-
     // Click on the commandLinkButtonAbout
-    connect(ui->commandLinkButtonAbout, &QCommandLinkButton::clicked, this, &FitnessCalc::clickedOnAboutDialog);
+    connect(ui->commandLinkButtonAbout, &QCommandLinkButton::clicked, this, &FitAssist::clickedOnAboutDialog);
 
     // Click on the pushButtonApply
-    connect(ui->pushButtonApply, &QPushButton::clicked, this, &FitnessCalc::setProfile);
+    connect(ui->pushButtonApply, &QPushButton::clicked, this, &FitAssist::setProfile);
 
     // Click on the radioButtonMale && radioButtonFemale
-    connect(ui->radioButtonMale, &QRadioButton::toggled, this, &FitnessCalc::maleReactToToggle);
+    connect(ui->radioButtonMale, &QRadioButton::toggled, this, &FitAssist::maleReactToToggle);
 
     // Click on the pushButtonAdd
-    connect(ui->pushButtonAdd, &QPushButton::clicked, this, &FitnessCalc::clickedOnAddDialog);
+    connect(ui->pushButtonAdd, &QPushButton::clicked, this, &FitAssist::clickedOnAddDialog);
 
     // Double click on the item of tableView
-    connect(ui->tableView, &QTableView::doubleClicked, this, &FitnessCalc::doubleClickedEdit);
+    connect(ui->tableView, &QTableView::doubleClicked, this, &FitAssist::doubleClickedEdit);
 
     // Click on the pushButtonEdit
-    connect(ui->pushButtonEdit, &QPushButton::clicked, this, &FitnessCalc::clickedOnEditList);
+    connect(ui->pushButtonEdit, &QPushButton::clicked, this, &FitAssist::clickedOnEditList);
 
     // Click on the pushButtonDel
-    connect(ui->pushButtonDel, &QPushButton::clicked, this, &FitnessCalc::deleteRowFromMyDiet);
+    connect(ui->pushButtonDel, &QPushButton::clicked, this, &FitAssist::deleteRowFromMyDiet);
 
     // Сlick on the pushButtonClean
-    connect(ui->pushButtonClean, &QPushButton::clicked, this, &FitnessCalc::removeAllRows);
+    connect(ui->pushButtonClean, &QPushButton::clicked, this, &FitAssist::removeAllRows);
 }
 
-FitnessCalc::~FitnessCalc()
+FitAssist::~FitAssist()
 {
     delete ui;
 
@@ -71,7 +68,7 @@ FitnessCalc::~FitnessCalc()
     delete profile;
 }
 
-void FitnessCalc::setProfile()
+void FitAssist::setProfile()
 {
     float weight = ui->doubleSpinBoxWeight->value();
     short height = ui->spinBoxHeight->value();
@@ -113,12 +110,12 @@ void FitnessCalc::setProfile()
     showNorms();
 }
 
-void FitnessCalc::getPFC(double protein, double fat, double carbonhydrate)
+void FitAssist::getPFC(double protein, double fat, double carbohydrate)
 {
-    if (protein == protein && fat == fat && carbonhydrate == carbonhydrate) {
+    if (protein == protein && fat == fat && carbohydrate == carbohydrate) {
         ui->lblProtein->setText(QString::number(protein, 'g', 3) + " %");
         ui->lblFat->setText(QString::number(fat, 'g', 3) + " %");
-        ui->lblCarbohydrate->setText(QString::number(carbonhydrate, 'g', 3) + " %");
+        ui->lblCarbohydrate->setText(QString::number(carbohydrate, 'g', 3) + " %");
     } else {
         ui->lblProtein->clear();
         ui->lblFat->clear();
@@ -126,7 +123,7 @@ void FitnessCalc::getPFC(double protein, double fat, double carbonhydrate)
     }
 }
 
-void FitnessCalc::getUpdateFlag(bool update)
+void FitAssist::setUpdateFlag(bool update)
 {
     if (update) {
         dbase = QSqlDatabase::addDatabase("QSQLITE");
@@ -138,63 +135,63 @@ void FitnessCalc::getUpdateFlag(bool update)
     }
 }
 
-void FitnessCalc::doubleClickedEdit(const QModelIndex &index)
+void FitAssist::doubleClickedEdit(const QModelIndex &index)
 {
     EditDialog *edit = new EditDialog(this);
     edit->setAttribute(Qt::WA_DeleteOnClose, true);
 
-    connect(this, &FitnessCalc::sendModel, edit, &EditDialog::getModel);
-    connect(edit, &EditDialog::sendUpdateFlag, this, &FitnessCalc::getUpdateFlag);
+    connect(this, &FitAssist::sendModel, edit, &EditDialog::getModel);
+    connect(edit, &EditDialog::sendUpdateFlag, this, &FitAssist::setUpdateFlag);
 
     emit sendModel(model);
 
     edit->showEdit(index);
 }
 
-void FitnessCalc::deleteRowFromMyDiet()
+void FitAssist::deleteRowFromMyDiet()
 {
     model->removeRow(ui->tableView->currentIndex().row());
-    getUpdateFlag(true);
+    setUpdateFlag(true);
 }
 
-void FitnessCalc::removeAllRows()
+void FitAssist::removeAllRows()
 {
     for (int i = 0; i < model->rowCount(); i++)
         model->removeRow(i);
-    getUpdateFlag(true);
+    setUpdateFlag(true);
 }
 
-void FitnessCalc::clickedOnEditList()
+void FitAssist::clickedOnEditList()
 {
     EditListDialog *editList = new EditListDialog(this);
     editList->setAttribute(Qt::WA_DeleteOnClose, true);
     editList->show();
 }
 
-void FitnessCalc::clickedOnAboutDialog()
+void FitAssist::clickedOnAboutDialog()
 {
-    aboutDialog *about = new aboutDialog(this);
+    AboutDialog *about = new AboutDialog(this);
     about->setAttribute(Qt::WA_DeleteOnClose, true);
     about->show();
 }
 
-void FitnessCalc::clickedOnAddDialog()
+void FitAssist::clickedOnAddDialog()
 {
-    addDialog *add = new addDialog(this);
+    AddDialog *add = new AddDialog(this);
     add->setAttribute(Qt::WA_DeleteOnClose, true);
 
     // Update the model when the signal come
-    connect(add, &addDialog::sendUpdateFlag, this, &FitnessCalc::getUpdateFlag);
+    connect(add, &AddDialog::sendUpdateFlag, this, &FitAssist::setUpdateFlag);
 
     add->show();
 }
 
-void FitnessCalc::showAdvices()
+void FitAssist::showAdvices()
 {
     ui->stackedWidget->setCurrentIndex(3);
 }
 
-void FitnessCalc::maleReactToToggle(bool checked)
+void FitAssist::maleReactToToggle(bool checked)
 {
     if (checked)
         ui->labelImage->setPixmap(QPixmap(":man&woman/images/man.png"));
@@ -202,14 +199,14 @@ void FitnessCalc::maleReactToToggle(bool checked)
         ui->labelImage->setPixmap(QPixmap(":man&woman/images/woman.png"));
 }
 
-bool FitnessCalc::readProfile()
+bool FitAssist::readProfile()
 {
     QFile file(fileName);
     if (!file.open(QIODevice::ReadOnly)) {
         return false;
     } else {
         QDataStream in(&file);
-        in.setVersion(QDataStream::Qt_5_5);
+
 
         in >> *profile;
 
@@ -245,7 +242,7 @@ bool FitnessCalc::readProfile()
     }
 }
 
-void FitnessCalc::writeProfile()
+void FitAssist::writeProfile()
 {
     if (!QDir("profile").exists())
         QDir().mkdir("profile");
@@ -260,7 +257,7 @@ void FitnessCalc::writeProfile()
     file.close();
 }
 
-void FitnessCalc::showNorms()
+void FitAssist::showNorms()
 {
     ui->labelTarget->setText(QString::number(profile->getCalorie()));
     ui->labelTargetCcal->setText(" " + tr("Ккал"));
@@ -272,7 +269,7 @@ void FitnessCalc::showNorms()
     ui->labelWaterNorm->setText(QString::number(profile->getWater(),'g',3));
 }
 
-void FitnessCalc::readMyDiet()
+void FitAssist::readMyDiet()
 {
     dbase.setDatabaseName(QDir::currentPath() + "/base/MyDiet.sqlite");
     dbase.open();
@@ -296,32 +293,32 @@ void FitnessCalc::readMyDiet()
     ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     // Update the total PFC and redraw the pie chart
-    connect(this, &FitnessCalc::sendPFC, ui->widget, &PieChart::getPFC);
-    connect(ui->widget, &PieChart::sendPFC, this, &FitnessCalc::getPFC);
+    connect(this, &FitAssist::sendPFC, ui->widget, &PieChart::getPFC);
+    connect(ui->widget, &PieChart::sendPFC, this, &FitAssist::getPFC);
 
     showTotal();
 }
 
-void FitnessCalc::showTotal()
+void FitAssist::showTotal()
 {
     int weight = 0;
     int calorie = 0;
     double protein = 0;
     double fat = 0;
-    double carbonhydrate = 0;
+    double carbohydrate = 0;
 
     for (int i = 0; i < model->rowCount(); i++) {
         weight += model->record(i).value(tr("Вес")).toInt();
         protein += model->record(i).value(tr("Белки")).toDouble();
         fat += model->record(i).value(tr("Жиры")).toDouble();
-        carbonhydrate += model->record(i).value(tr("Углеводы")).toDouble();
+        carbohydrate += model->record(i).value(tr("Углеводы")).toDouble();
         calorie += model->record(i).value(tr("Ккал")).toInt();
     }
 
     ui->lblWeight->setText(QString::number(weight));
     ui->lblProtein_Conclusion->setText(QString::number(protein));
     ui->lblFat_Conclusion->setText(QString::number(fat));
-    ui->lblCarbohydrate_Conlusion->setText(QString::number(carbonhydrate));
+    ui->lblCarbohydrate_Conlusion->setText(QString::number(carbohydrate));
     ui->lblCalorie_Conclusion->setText(QString::number(calorie));
     ui->labelRecieved->setText(QString::number(calorie));
     ui->labelRecievedCcal->setText(" " + tr("Ккал"));
@@ -335,5 +332,5 @@ void FitnessCalc::showTotal()
         ui->labelLeftedCcal->setText(" " + tr("Ккал"));
     }
 
-    emit sendPFC(protein, fat, carbonhydrate);
+    emit sendPFC(protein, fat, carbohydrate);
 }

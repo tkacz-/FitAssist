@@ -31,10 +31,11 @@ private:
 
     QSqlTableModel *model;
     QModelIndex index;
+
     int weight;
     double protein;
     double fat;
-    double carbonhydrate;
+    double carbohydrate;
     double calorie;
 };
 
